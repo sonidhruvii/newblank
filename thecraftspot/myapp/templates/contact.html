@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
 
 
@@ -6,16 +7,16 @@
 <meta charset="utf-8">
 <title>Decorators - Design Studio HTML Template | Contact Us</title>
 <!-- Stylesheets -->
-<link href="css/bootstrap.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
+<link href="static/css/bootstrap.css" rel="stylesheet">
+<link href="static/css/style.css" rel="stylesheet">
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<link href="css/responsive.css" rel="stylesheet">
-<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
-<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+<link href="static/css/responsive.css" rel="stylesheet">
+<!--[if lt IE 9]><script src="static/https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="static/js/respond.js"></script><![endif]-->
 </head>
 
 <body>
@@ -25,40 +26,32 @@
     <!-- Preloader -->
     <div class="preloader"></div>
  	
-    <!-- Main Header-->
-    <header class="main-header">
+       <!-- Main Header-->
+       <header class="main-header">
     	<!-- Header Top -->
     	<div class="header-top">
         	<div class="auto-container">
             	<div class="row clearfix">
                     
                     <!--Top Left-->
-                    <div class="top-left pull-left">
-                    	<div class="dropdown lang-dropdown">
-                        	<button  class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><img src="images/icons/flog.png" alt="" /> &nbsp; English <span class="fa fa-angle-down"></span></button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">French</a></li>
-                                <li><a href="#">Espanish</a></li>
-                                <li><a href="#">Chinese</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    
                     
                     <!--Top Right-->
                     <div class="top-right pull-right">
-                    
+                        
+
                     	<!--social-icon-->
                         <div class="social-icon">
                         	<a href="#"><span class="fa fa-facebook"></span></a>
                             <a href="#"><span class="fa fa-twitter"></span></a>
-                            <a href="#"><span class="fa fa-dribbble"></span></a>
-                            <a href="#"><span class="fa fa-linkedin"></span></a>
+                            
                         </div>
                         
                     	<ul>
-                        	<li><span class="fa fa-envelope-o"></span>Contact@Decorators.com</li>
-                            <li><span class="fa fa-phone"></span>Toll Free: +1 212-212-2376</li>
-                            <li><span class="fa fa-clock-o"></span>Mon - Fri : 9:00 -1700</li>
+                            {% if request.session.logname %}
+                            <li><span class="fa fa-envelope-o"><a href="/profile"></span>Welcome , {{ request.session.logname }}</li></a>
+                            {% endif %}
+                        	
                         </ul>
                         
                         
@@ -76,7 +69,7 @@
             	<div class="outer-container clearfix">
                     <!--Logo Box-->
                     <div class="logo-box">
-                        <div class="logo"><a href="index-2.html"><img src="images/logo.png" alt=""></a></div>
+                        <div class="logo"><a href="index-2.html"><img src="static/images/image.png" alt="" style="margin: 10px; width: 200px; height =200px;"></a></div>
                     </div>
                     
                     <!--Nav Outer-->
@@ -94,74 +87,39 @@
                             
                             <div class="navbar-collapse collapse clearfix">
                                 <ul class="navigation clearfix">
-                                    <li><a href="index-2.html">Home</a></li>
-                                    <li class="dropdown"><a href="#">About Us</a>
-                                    	<ul>
-                                            <li><a href="about-us.html">About Us</a></li>
-                                            <li><a href="our-team.html">Our Team</a></li>
-                                            <li><a href="team-single.html">Team Single</a></li>
-                                        </ul>
+                                    <li class="current"><a href="/">Home</a></li>
+                                    <li class="dropdown"><a href="/about">About Us</a>
                                     </li>
-                                    <li class="dropdown"><a href="#">Services</a>
-                                    	<ul>
-                                            <li><a href="services.html">Our Services</a></li>
-                                            <li><a href="service-single.html">Services Single</a></li>
-                                        </ul>
+                               
+                                    <li class="dropdown"><a href="/discover">Our Categories</a>
                                     </li>
-                                    <li class="dropdown"><a href="#">Projects</a>
-                                    	<ul>
-                                            <li><a href="portfolio-default.html">Projects Standard</a></li>
-                                            <li><a href="portfolio-fullwidth.html">Projects Fullwidth</a></li>
-                                            <li><a href="portfolio-with-text.html">Projects With Text</a></li>
-                                            <li><a href="portfolio-single-one.html">Projects Single 01</a></li>
-                                            <li><a href="portfolio-single-two.html">Projects Single 02</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown"><a href="#">Blog</a>
-                                    	<ul>
-                                            <li><a href="blog.html">Blog Standard</a></li>
-                                            <li><a href="blog-large-image.html">Blog Large Image</a></li>
-                                            <li><a href="blog-single.html">Blog Single</a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="/contact">Contact</a></li>
+                                    {% if request.session.logname %}
                                     
-                                    <li class="dropdown"><a href="#">Shop</a>
-                                        <ul>
-                                            <li><a href="shop.html">Shop Products</a></li>
-                                            <li><a href="shop-single.html">Shop Single</a></li>
-                                            <li><a href="shopping-cart.html">Shopping Cart</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li>
-                                            <li><a href="register.html">Login / Register</a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="/logout/">Logout</a></li>
+                                {% else %}
+                                    <li><a href="/register">Register</a></li>
+                                    <li><a href="/login">Login</a></li>
+                                {% endif %}
                                     
-                                    <li class="dropdown"><a href="#">Pages</a>
-                                    	<ul>
-                                            <li><a href="about-us.html">About Us</a></li>
-                                            <li><a href="our-team.html">Our Team</a></li>
-                                            <li><a href="team-single.html">Team Single</a></li>
-                                            <li><a href="pricing.html">Pricing Table</a></li>
-                                            <li><a href="faqs.html">FAQ's</a></li>
-                                        </ul>
-                                    </li>
                                     
-                                    <li class="current"><a href="contact.html">Contact</a></li>
                                     
                                  </ul>
                             </div>
                         </nav><!-- Main Menu End-->
                         
                     </div><!--Nav Outer End-->
-                    
+                    {% if request.session.logname %}
                     <!-- Hidden Nav Toggler -->
                     <div class="nav-toggler">
                     <button class="hidden-bar-opener"><span class="icon fa fa-bars"></span></button>
                     </div><!-- / Hidden Nav Toggler -->
                     
                     <!--Search Btn-->
-                    <a href="shopping-cart.html" class="cart-btn-outer"><div class="icon"><span class="flaticon-shopping-bag"></span><span class="count">2</span></div></a>
+                    <a href="/shopping-cart" class="cart-btn-outer"><div class="icon"><span class="flaticon-shopping-cart">&nbsp; &nbsp;&nbsp; &nbsp;</span></div></a>
                     <div class="header-search-icon search-box-btn"><span class="flaticon-search"></span></div>
-                    
+                </div>
+                <a href="/showorders" class="cart-btn-outer"><div class="icon"> <span class="flaticon-shopping-bag"></span></div></a>                {% endif %}
             	</div>    
             </div>
         </div>
@@ -182,65 +140,31 @@
         
             <!-- .logo -->
             <div class="logo text-center">
-                <a href="index-2.html"><img src="images/logo-2.png" alt=""></a>			
+                <a href="index-2.html"><img src="static/images/logo-2.png" alt=""></a>			
             </div><!-- /.logo -->
             
             <!-- .Side-menu -->
             <div class="side-menu">
             <!-- .navigation -->
                 <ul class="navigation">
-                    <li class="current"><a href="index-2.html">Home</a></li>
-                    <li class="dropdown"><a href="#">About Us</a>
-                        <ul>
-                            <li><a href="about-us.html">About Us</a></li>
-                            <li><a href="our-team.html">Our Team</a></li>
-                            <li><a href="team-single.html">Team Single</a></li>
-                        </ul>
+                    <li class="current"><a href="/">Home</a></li>
+                    <li class="dropdown"><a href="/about">About Us</a>
+                        
                     </li>
-                    <li class="dropdown"><a href="#">Services</a>
-                        <ul class="submenu">
-                            <li><a href="services.html">Our Services</a></li>
-                            <li><a href="service-single.html">Services Single</a></li>
-                        </ul>
+                    <li class="dropdown"><a href="/discover">Our Categories </a>
+                       
                     </li>
-                    <li class="dropdown"><a href="#">Projects</a>
-                        <ul class="submenu">
-                            <li><a href="portfolio-default.html">Projects Standard</a></li>
-                            <li><a href="portfolio-fullwidth.html">Projects Fullwidth</a></li>
-                            <li><a href="portfolio-with-text.html">Projects With Text</a></li>
-                            <li><a href="portfolio-single-one.html">Projects Single 01</a></li>
-                            <li><a href="portfolio-single-two.html">Projects Single 02</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a href="#">Blog</a>
-                        <ul class="submenu">
-                            <li><a href="blog.html">Blog Standard</a></li>
-                            <li><a href="blog-large-image.html">Blog large Image</a></li>
-                            <li><a href="blog-single.html">Blog Single</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="/contact">Contact</a></li>
                     
-                    <li class="dropdown"><a href="#">Shop</a>
-                        <ul class="submenu">
-                            <li><a href="shop.html">Shop Products</a></li>
-                            <li><a href="shop-single.html">Shop Single</a></li>
-                            <li><a href="shopping-cart.html">Shopping Cart</a></li>
-                            <li><a href="checkout.html">Checkout</a></li>
-                            <li><a href="register.html">Login / Register</a></li>
-                        </ul>
-                    </li>
+                    {% if request.session.logname %}
+                                    
+                                    <li><a href="/logout/">Logout</a></li>
+                                {% else %}
+                                    <li><a href="/register">Register</a></li>
+                                    <li><a href="/login">Login</a></li>
+                                {% endif %}
                     
-                    <li class="dropdown"><a href="#">Pages</a>
-                        <ul class="submenu">
-                            <li><a href="about-us.html">About Us</a></li>
-                            <li><a href="our-team.html">Our Team</a></li>
-                            <li><a href="team-single.html">Team Single</a></li>
-                            <li><a href="pricing.html">Pricing Table</a></li>
-                            <li><a href="faqs.html">FAQ's</a></li>
-                        </ul>
-                    </li>
-                    
-                    <li class="current"><a href="contact.html">Contact</a></li>
+                   
                 </ul>
             </div><!-- /.Side-menu -->
         
@@ -248,8 +172,7 @@
                 <ul>
                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    
                 </ul>
             </div>
         
@@ -258,8 +181,9 @@
     <!-- / Hidden Bar -->
     
     
+    
     <!--Page Title-->
-    <section class="page-title" style="background-image:url(images/background/bg-page-title-1.jpg);">
+    <section class="page-title" style="background-image:url(static/images/background/bg-page-title-1.jpg);">
         <div class="auto-container">
             <h1>Contact Us</h1>
         </div>
@@ -271,7 +195,7 @@
             <div class="pull-left"><h2>Contact Us</h2></div>
             <div class="pull-right">
                 <ul class="bread-crumb clearfix">
-                    <li><a href="index-2.html">Home</a></li>
+                    <li><a href="/index">Home</a></li>
                     <li>Contact Us</li>
                 </ul>
             </div>
@@ -289,16 +213,18 @@
                 	<!--form-box-->
                     <div class="form-box default-form">
                         <div class="contact-form default-form">
-                            <form method="post" action="http://world5.commonsupport.com/html2/decorators/sendemail.php" id="contact-form">
+                            <form action="/insertcontactdata" method="post" enctype="multipart/form-data" id="contact-form">
+                             {% csrf_token %}
                                 <div class="row clearfix">
                                 
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <select name="subject">
-                                            <option>Subject</option>
-                                            <option>Wooden Flooring</option>
-                                            <option>Metal Flooring</option>
-                                            <option>Concrete Flooring</option>
-                                        </select>
+                                        <input type="text" name="subject" value="" placeholder="Subject *" required>
+<!--                                        <select name="subject">-->
+<!--                                            <option>Subject</option>-->
+<!--&lt;!&ndash;                                            <option>Wooden Flooring</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <option>Metal Flooring</option>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <option>Concrete Flooring</option>&ndash;&gt;-->
+<!--                                        </select>-->
                                     </div>
                                 
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
@@ -310,30 +236,48 @@
                                     </div>
                                     
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" name="phone" value="" placeholder="Phone Number">
+                                        <input type="text" name="phone" value=""  pattern="[6-9][0-9]{9}" maxlength="10"
+                                        minlength="10" placeholder="Phone Number"required>
+                                        
                                     </div>
                                     
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                         <textarea name="message" placeholder="Message *"></textarea>
                                     </div>
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                        <button type="submit" class="theme-btn btn-style-two">Get Quote</button>
+<!--                                        <button type="submit" class="theme-btn btn-style-two">Get Quote</button>-->
+                                       <input type="submit" class="theme-btn btn-style-two" name="Submit" value="Submit" />
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
+                <script>
+                    document.getElementById("contact-form").onsubmit = function(event) {
+                        event.preventDefault(); // Prevent default form submission
+                
+                        // Show pop-up message
+                        alert("Your message has been submitted successfully!");
+                
+                        // Submit form after alert
+                        this.submit();
+                    };
+                </script>
                 
                 <!--Column-->
                 <div class="column info-column col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 	<div class="sec-title medium"><h2>Contact Details</h2></div>
-                    <div class="desc-text">There are many variations off +1800 854 5864 available, but the majority have ut suffered alterattions in some forms by injected humour looks events slightly seds believable ut  seds do eiusmod tempor incididunt labore.</div>
-                	<div class="info-style-one">
+<!--                    <div class="desc-text">There are many variations off +1800 854 5864 available, but the majority have ut suffered alterattions in some forms by injected humour looks events slightly seds believable ut  seds do eiusmod tempor incididunt labore.</div>-->
+                	<div class="desc-text">Home decor isn't about rejecting enjoyment and embracing discomfort. Our goal is to offer you helpful insights into the world of interior design. We provide a carefully chosen range of arts and decorations that prioritize both comfort and style. Allow us to assist you in transforming your living space into a personal sanctuary that enhances your daily life experiences.</div>
+
+                    <div class="info-style-one">
                         <ul>
-                            <li><div class="icon-box"><span class="flaticon-international-delivery"></span></div><h4>Address :</h4><div class="text">21/17, Level 4 Steel Rock St, Melbourne <br>Victoria 3000, Australia.</div></li>
-                            <li><div class="icon-box"><span class="flaticon-envelope"></span></div><h4>Mail to Fernando :</h4><div class="text">Decoratorssupport@gmail.com</div></li>
-                            <li><div class="icon-box"><span class="flaticon-phone-call"></span></div><h4>Call Him:</h4><div class="text"> +1 (44) 123-45-67, +1(44) 456-78-90</div></li>
+                            <li><div class="icon-box"><span class="flaticon-international-delivery"></span></div><h4>Address :</h4><div class="text">Ashram Road, 9, Vidya Vihar Colony Rd, <br> opp. Fortune Landmark Hotel, Usmanpura, <br>Ahmedabad, Gujarat 380013.</div></li>
+<!--                            <li><div class="icon-box"><span class="flaticon-envelope"></span></div><h4>Mail to Fernando :</h4><div class="text">Decordelightsupport@gmail.com</div></li>-->
+                            <li><div class="icon-box"><span class="flaticon-envelope"></span></div><h4>Mail :</h4><div class="text">Decordelightsupport@gmail.com</div></li>
+<!--                            <li><div class="icon-box"><span class="flaticon-phone-call"></span></div><h4>Call Him:</h4><div class="text"> 079 2755 6140</div></li>-->
+                            <li><div class="icon-box"><span class="flaticon-phone-call"></span></div><h4>Call :</h4><div class="text"> 079 2755 6140</div></li>
                         </ul>
                     </div>
                 </div>
@@ -344,161 +288,116 @@
     
     
     <!--Map Section-->
-    <section class="map-section">
-    	<div class="map-outer">
+<!--    <section class="map-section">-->
+<!--    	<div class="map-outer">-->
 
-            <!--Map Canvas-->
-            <div class="map-canvas"
-                data-zoom="10"
-                data-lat="23.815811"
-                data-lng="90.412580"
-                data-type="roadmap"
-                data-hue="#fc721e"
-                data-title="Dhaka"
-                data-content="Dhaka 1000-1200, Bangladesh<br><a href='mailto:info@youremail.com'>info@youremail.com</a>"
-                style="height:480px;">
-            </div>
+<!--            &lt;!&ndash;Map Canvas&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="map-canvas"&ndash;&gt;-->
+<!--&lt;!&ndash;                data-zoom="10"&ndash;&gt;-->
+<!--&lt;!&ndash;                data-lat="23.815811"&ndash;&gt;-->
+<!--&lt;!&ndash;                data-lng="90.412580"&ndash;&gt;-->
+<!--&lt;!&ndash;                data-type="roadmap"&ndash;&gt;-->
+<!--&lt;!&ndash;                data-hue="#fc721e"&ndash;&gt;-->
+<!--&lt;!&ndash;                data-title="Dhaka"&ndash;&gt;-->
+<!--&lt;!&ndash;                data-content="Dhaka 1000-1200, Bangladesh<br><a href='mailto:info@youremail.com'>info@youremail.com</a>"&ndash;&gt;-->
+<!--&lt;!&ndash;                style="height:480px;">&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
 
-        </div>
-    </section>
+<!--        </div>-->
+<!--    </section>-->
     
     
     <!--Main Footer-->
-    <footer class="main-footer" style="background-image:url(images/background/footer-bg.jpg);">
-    	<div class="auto-container">
-        
-            <!--Widgets Section-->
-            <div class="widgets-section">
-            	<div class="row clearfix">
-                	<!--Big Column-->
-                	<div class="big-column col-md-6 col-sm-12 col-xs-12">
-                    	<div class="row clearfix">
-                            
-                            <!--Footer Column-->
-                        	<div class="footer-column col-md-6 col-sm-6 col-xs-12">
-                            	<div class="footer-widget about-widget">
-                                	<div class="footer-logo"><figure><a href="index-2.html"><img src="images/logo-4.png" alt=""></a></figure></div>
-                                    <div class="widget-content">
-                                    	<div class="text">Must explain too you all this mistaken idea off denouncing pleasure and well praising pain was born and I will gives you complete accounts systems must explain to idea of denouncing.</div>
-                                        <ul class="contact-info">
-                                        	<li><span class="icon fa fa-map-marker"></span>Rock St 12, Newyork City, USA</li>
-                                            <li><span class="icon fa fa-phone"></span>(526) 236-895-4732</li>
-                                            <li><span class="icon fa fa-envelope-o"></span>Decoratorssuport@gmail.com</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!--Footer Column-->
-                        	<div class="footer-column col-md-6 col-sm-6 col-xs-12">
-                            	<div class="footer-widget tags-widget">
-                                	<h2>Popular Tags</h2>
-                                    <div class="widget-content">
-                                    	<ul class="tags-list">
-                                        	<li><a href="#">Designs</a></li>
-                                            <li><a href="#">Tips</a></li>
-                                            <li><a href="#">Interior</a></li>
-                                            <li><a href="#">Doors</a></li>
-                                            <li><a href="#">Curtains</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="footer-widget gallery-widget">
-                                	<h2>Recent Works</h2>
-                                    <div class="gallery-widget-carousel">
-                                    	<div class="item"><figure class="post-thumb"><img src="images/gallery/thumb-1.jpg" alt=""><a href="#" class="overlay-link"><span class="fa fa-link"></span></a></figure></div>
-                                        <div class="item"><figure class="post-thumb"><img src="images/gallery/thumb-2.jpg" alt=""><a href="#" class="overlay-link"><span class="fa fa-link"></span></a></figure></div>
-                                        <div class="item"><figure class="post-thumb"><img src="images/gallery/thumb-3.jpg" alt=""><a href="#" class="overlay-link"><span class="fa fa-link"></span></a></figure></div>
-                                        <div class="item"><figure class="post-thumb"><img src="images/gallery/thumb-4.jpg" alt=""><a href="#" class="overlay-link"><span class="fa fa-link"></span></a></figure></div>
-                                        <div class="item"><figure class="post-thumb"><img src="images/gallery/thumb-1.jpg" alt=""><a href="#" class="overlay-link"><span class="fa fa-link"></span></a></figure></div>
-                                        <div class="item"><figure class="post-thumb"><img src="images/gallery/thumb-2.jpg" alt=""><a href="#" class="overlay-link"><span class="fa fa-link"></span></a></figure></div>
-                                        <div class="item"><figure class="post-thumb"><img src="images/gallery/thumb-3.jpg" alt=""><a href="#" class="overlay-link"><span class="fa fa-link"></span></a></figure></div>
-                                        <div class="item"><figure class="post-thumb"><img src="images/gallery/thumb-4.jpg" alt=""><a href="#" class="overlay-link"><span class="fa fa-link"></span></a></figure></div>
-                                        <div class="item"><figure class="post-thumb"><img src="images/gallery/thumb-1.jpg" alt=""><a href="#" class="overlay-link"><span class="fa fa-link"></span></a></figure></div>
-                                        <div class="item"><figure class="post-thumb"><img src="images/gallery/thumb-2.jpg" alt=""><a href="#" class="overlay-link"><span class="fa fa-link"></span></a></figure></div>
-                                        <div class="item"><figure class="post-thumb"><img src="images/gallery/thumb-3.jpg" alt=""><a href="#" class="overlay-link"><span class="fa fa-link"></span></a></figure></div>
-                                        <div class="item"><figure class="post-thumb"><img src="images/gallery/thumb-4.jpg" alt=""><a href="#" class="overlay-link"><span class="fa fa-link"></span></a></figure></div>
-                                    </div>
-                                </div>
-                            </div>
-                            
+    <footer class="main-footer" style="background-image:url(/static/images/background/footer-bg.jpg);">
+    <div class="auto-container">
+        <!--Widgets Section-->
+        <div class="widgets-section">
+            <div class="row clearfix">
+                <!--Footer Column - About Us-->
+                <div class="footer-column col-md-4 col-sm-4 col-xs-12">
+                    <div class="footer-widget about-widget">
+                        <div class="footer-logo"><figure><a href="index"><img src="/static/images/logo-4.png" alt=""></a></figure></div>
+                        <div class="widget-content">
+<!--                            <div class="text">Must explain too you all this mistaken idea off denouncing pleasure and well praising pain was born and I will gives you complete accounts systems must explain to idea of denouncing.</div>-->
+                            <div class="text">Home decor isn't about rejecting enjoyment and embracing discomfort. Our goal is to offer you helpful insights into the world of interior design. We provide a carefully chosen range of arts and decorations that prioritize both comfort and style. Allow us to assist you in transforming your living space into a personal sanctuary that enhances your daily life experiences.</div>
+                            <ul class="contact-info">
+                                <li><span class="icon fa fa-map-marker"></span>Ashram Road, 9, Vidya Vihar Colony Rd, opp. Fortune Landmark Hotel, Usmanpura, Ahmedabad, Gujarat 380013</li>
+                                <li><span class="icon fa fa-phone"></span>079 2755 6140</li>
+                                <li><span class="icon fa fa-envelope-o"></span>Decordelightsupport@gmail.com</li>
+                            </ul>
                         </div>
                     </div>
-                    
-                    <!--Big Column-->
-                	<div class="big-column col-md-6 col-sm-12 col-xs-12">
-                    	<div class="row clearfix">
-                            
-                            <!--Footer Column-->
-                        	<div class="footer-column col-md-6 col-sm-6 col-xs-12">
-                            	<div class="footer-widget posts-widget">
-                                	<h2>Recent News</h2>
-                                    <div class="widget-content">
-                                    	<div class="posts">
-                                            <div class="post">
-                                                <figure class="post-thumb"><img src="images/resource/post-thumb-1.jpg" alt=""><a href="#" class="overlay-link"><span class="flaticon-plus-1"></span></a></figure>
-                                                <div class="desc-text"><a href="#">How mistakens denoncings pleasure and complete.</a></div>
-                                                <div class="time"><span class="fa fa-clock-o"></span> Oct 03, 2015</div>
-                                            </div>
-                                            <div class="post">
-                                                <figure class="post-thumb"><img src="images/resource/post-thumb-2.jpg" alt=""><a href="#" class="overlay-link"><span class="flaticon-plus-1"></span></a></figure>
-                                                <div class="desc-text"><a href="#">Pleasure praising pains was, expound actual teaching.</a></div>
-                                                <div class="time"><span class="fa fa-clock-o"></span> Aug 21, 2015</div>
-                                            </div>
-                                        </div>
-                                        <a class="view-more theme-btn" href="#">Read More <span class="fa fa-caret-right"></span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!--Footer Column-->
-                        	<div class="footer-column col-md-6 col-sm-6 col-xs-12">
-                            	<div class="footer-widget contact-widget">
-                                	<h2>Send Us Message</h2>
-                                    <div class="widget-content">
-                                        <div class="newsletter-form">
-                                            <form method="post" action="#">
-                                                <div class="form-group">
-                                                    <input type="text" name="name" value="" placeholder="Name" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="email" name="email" value="" placeholder="Email *" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <textarea name="message" placeholder="Message *" required></textarea>
-                                                </div>
-                                                <button type="submit" class="theme-btn btn-style-two">Send us</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
+                </div>
+
+                <!--Footer Column - Popular Tags-->
+                <div class="footer-column col-md-4 col-sm-4 col-xs-12">
+                    <div class="footer-widget tags-widget">
+                        <h2>Popular Tags</h2>
+                        <div class="widget-content">
+                            <ul class="tags-list">
+                                {% for i in catdata %}
+                                    <li><a href="/productfilter/{{ i.id }}">{{ i.CAT_NAME }}</a></li>
+                                {% endfor %}
+                            </ul>
                         </div>
                     </div>
-                    
-                 </div>
-             </div>
-        
+                </div>
+
+                <!--Footer Column - Send Message Us-->
+<!--                <div class="footer-column col-md-4 col-sm-4 col-xs-12">-->
+<!--                    <div class="footer-widget tags-widget">-->
+<!--                        <h2>Send Us Message </h2>-->
+<!--                        &lt;!&ndash;form-box&ndash;&gt;-->
+<!--                        <div class="form-box default-form">-->
+<!--                            <div class="contact-form default-form">-->
+<!--                                <form action="/insertcontactdata" method="post" enctype="multipart/form-data">-->
+<!--                                    {% csrf_token %}-->
+<!--                                    <div class="row clearfix">-->
+<!--                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">-->
+<!--                                            <input type="text" name="subject" value="" placeholder="Subject *" required>-->
+<!--                                        </div>-->
+<!--                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">-->
+<!--                                            <input type="text" name="username" value="" placeholder="Your Name *" required>-->
+<!--                                        </div>-->
+<!--                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">-->
+<!--                                            <input type="email" name="email" value="" placeholder="Your Mail *" required>-->
+<!--                                        </div>-->
+<!--                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">-->
+<!--                                            <input type="text" name="phone" value="" placeholder="Phone Number">-->
+<!--                                        </div>-->
+<!--                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">-->
+<!--                                            <textarea name="message" placeholder="Message *"></textarea>-->
+<!--                                        </div>-->
+<!--                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">-->
+<!--                                            <input type="submit" class="theme-btn btn-style-two" name="Submit" value="SEND US" />-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </form>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+            </div>
         </div>
-        
-        <!--Footer Bottom-->
-         <div class="footer-bottom">
-         	<div class="auto-container">
-            	<div class="clearfix">
-                	<div class="pull-left"><div class="copyright"><a href="https://www.templateshub.net" target="_blank">Templates Hub</a></div></div>
-                    <div class="pull-right">
-                    	<ul class="footer-nav">
-                        	<li><a href="#">Home</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </div>
+    </div>
+
+    <!--Footer Bottom-->
+    <div class="footer-bottom">
+        <div class="auto-container">
+            <div class="clearfix">
+                <div class="pull-right">
+                    <ul class="footer-nav">
+                        <li><a href=/index>Home</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/feedback">Feedback</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
     
     
 </div>
@@ -523,11 +422,12 @@
             <br>
             <h3>Recent Search Keywords</h3>
             <ul class="recent-searches">
-                <li><a href="#">Business</a></li>
-                <li><a href="#">Web Development</a></li>
-                <li><a href="#">SEO</a></li>
-                <li><a href="#">Logistics</a></li>
-                <li><a href="#">Freedom</a></li>
+                <li><a href="#">Wood Art</a></li>
+                <li><a href="#">Wall Art</a></li>
+                <li><a href="#">Resin Art</a></li>
+                <li><a href="#">Lighting</a></li>
+                <!--<li><a href="#">Logistics</a></li>
+                <li><a href="#">Freedom</a></li>-->
             </ul>
         
         </div>
@@ -539,19 +439,19 @@
 <div class="scroll-to-top scroll-to-target" data-target=".main-header"><span class="fa fa-long-arrow-up"></span></div>
 
 
-<script src="js/jquery.js"></script> 
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="js/jquery.fancybox.pack.js"></script>
-<script src="js/jquery.fancybox-media.js"></script>
-<script src="js/validate.js"></script>
-<script src="js/owl.js"></script>
-<script src="js/wow.js"></script>
-<script src="js/script.js"></script>
+<script src="static/js/jquery.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="static/js/jquery.fancybox.pack.js"></script>
+<script src="static/js/jquery.fancybox-media.js"></script>
+<script src="static/js/validate.js"></script>
+<script src="static/js/owl.js"></script>
+<script src="static/js/wow.js"></script>
+<script src="static/js/script.js"></script>
 
 <!--Google Map APi Key-->
-<script src="http://maps.google.com/maps/api/js?key="></script>
-<script src="js/map-script.js"></script>
+<script src="static/http://maps.google.com/maps/api/js?key="></script>
+<script src="static/js/map-script.js"></script>
 <!--End Google Map APi-->
 
 </body>

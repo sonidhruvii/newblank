@@ -4,7 +4,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>Decorators - Design Studio HTML Template | Checkout</title>
+<title>The Craft Spot | Checkout</title>
 <!-- Stylesheets -->
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
@@ -25,7 +25,7 @@
 <div class="page-wrapper">
  	
     <!-- Preloader -->
-    <div class="preloader"></div>
+    
  	
     <!-- Main Header-->
     <header class="main-header">
@@ -35,32 +35,24 @@
             	<div class="row clearfix">
                     
                     <!--Top Left-->
-                    <div class="top-left pull-left">
-                    	<div class="dropdown lang-dropdown">
-                        	<button  class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><img src="images/icons/flog.png" alt="" /> &nbsp; English <span class="fa fa-angle-down"></span></button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">French</a></li>
-                                <li><a href="#">Espanish</a></li>
-                                <li><a href="#">Chinese</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    
                     
                     <!--Top Right-->
                     <div class="top-right pull-right">
-                    
+                        
+
                     	<!--social-icon-->
                         <div class="social-icon">
                         	<a href="#"><span class="fa fa-facebook"></span></a>
                             <a href="#"><span class="fa fa-twitter"></span></a>
-                            <a href="#"><span class="fa fa-dribbble"></span></a>
-                            <a href="#"><span class="fa fa-linkedin"></span></a>
+                            
                         </div>
                         
                     	<ul>
-                        	<li><span class="fa fa-envelope-o"></span>Contact@Decorators.com</li>
-                            <li><span class="fa fa-phone"></span>Toll Free: +1 212-212-2376</li>
-                            <li><span class="fa fa-clock-o"></span>Mon - Fri : 9:00 -1700</li>
+                            {% if request.session.logname %}
+                            <li><span class="fa fa-envelope-o"></span>Welcome , {{ request.session.logname }}</li>
+                            {% endif %}
+                        	
                         </ul>
                         
                         
@@ -78,7 +70,7 @@
             	<div class="outer-container clearfix">
                     <!--Logo Box-->
                     <div class="logo-box">
-                        <div class="logo"><a href="index-2.html"><img src="images/logo.png" alt=""></a></div>
+                        <div class="logo"><a href="index-2.html"><img src="static/images/image.png" alt="" style="margin: 10px; width: 200px; height =200px;"></a></div>
                     </div>
                     
                     <!--Nav Outer-->
@@ -96,74 +88,38 @@
                             
                             <div class="navbar-collapse collapse clearfix">
                                 <ul class="navigation clearfix">
-                                    <li><a href="index-2.html">Home</a></li>
-                                    <li class="dropdown"><a href="#">About Us</a>
-                                    	<ul>
-                                            <li><a href="about-us.html">About Us</a></li>
-                                            <li><a href="our-team.html">Our Team</a></li>
-                                            <li><a href="team-single.html">Team Single</a></li>
-                                        </ul>
+                                    <li class="current"><a href="index-2.html">Home</a></li>
+                                    <li class="dropdown"><a href="/about">About Us</a>
                                     </li>
-                                    <li class="dropdown"><a href="#">Services</a>
-                                    	<ul>
-                                            <li><a href="services.html">Our Services</a></li>
-                                            <li><a href="service-single.html">Services Single</a></li>
-                                        </ul>
+                               
+                                    <li class="dropdown"><a href="/discover">Our Categories</a>
                                     </li>
-                                    <li class="dropdown"><a href="#">Projects</a>
-                                    	<ul>
-                                            <li><a href="portfolio-default.html">Projects Standard</a></li>
-                                            <li><a href="portfolio-fullwidth.html">Projects Fullwidth</a></li>
-                                            <li><a href="portfolio-with-text.html">Projects With Text</a></li>
-                                            <li><a href="portfolio-single-one.html">Projects Single 01</a></li>
-                                            <li><a href="portfolio-single-two.html">Projects Single 02</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown"><a href="#">Blog</a>
-                                    	<ul>
-                                            <li><a href="blog.html">Blog Standard</a></li>
-                                            <li><a href="blog-large-image.html">Blog Large Image</a></li>
-                                            <li><a href="blog-single.html">Blog Single</a></li>
-                                        </ul>
-                                    </li>
-                                    
-                                    <li class="dropdown current"><a href="#">Shop</a>
-                                        <ul>
-                                            <li><a href="shop.html">Shop Products</a></li>
-                                            <li><a href="shop-single.html">Shop Single</a></li>
-                                            <li><a href="shopping-cart.html">Shopping Cart</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li>
-                                            <li><a href="register.html">Login / Register</a></li>
-                                        </ul>
-                                    </li>
-                                    
-                                    <li class="dropdown"><a href="#">Pages</a>
-                                    	<ul>
-                                            <li><a href="about-us.html">About Us</a></li>
-                                            <li><a href="our-team.html">Our Team</a></li>
-                                            <li><a href="team-single.html">Team Single</a></li>
-                                            <li><a href="pricing.html">Pricing Table</a></li>
-                                            <li><a href="faqs.html">FAQ's</a></li>
-                                        </ul>
-                                    </li>
-                                    
                                     <li><a href="contact.html">Contact</a></li>
+                                    {% if request.session.logname %}
+                                    
+                                    <li><a href="/logout/">Logout</a></li>
+                                {% else %}
+                                    <li><a href="/register">Register</a></li>
+                                    <li><a href="/login">Login</a></li>
+                                {% endif %}
+                                    
+                                    
                                     
                                  </ul>
                             </div>
                         </nav><!-- Main Menu End-->
                         
                     </div><!--Nav Outer End-->
-                    
+                    {% if request.session.logname %}
                     <!-- Hidden Nav Toggler -->
                     <div class="nav-toggler">
                     <button class="hidden-bar-opener"><span class="icon fa fa-bars"></span></button>
                     </div><!-- / Hidden Nav Toggler -->
                     
                     <!--Search Btn-->
-                    <a href="shopping-cart.html" class="cart-btn-outer"><div class="icon"><span class="flaticon-shopping-bag"></span><span class="count">2</span></div></a>
+                    <a href="shopping-cart" class="cart-btn-outer"><div class="icon"><span class="flaticon-shopping-bag"></span><span class="count"></span></div></a>
                     <div class="header-search-icon search-box-btn"><span class="flaticon-search"></span></div>
-                    
+                    {% endif %}
             	</div>    
             </div>
         </div>
@@ -184,65 +140,31 @@
         
             <!-- .logo -->
             <div class="logo text-center">
-                <a href="index-2.html"><img src="images/logo-2.png" alt=""></a>			
+                <a href="index-2.html"><img src="static/images/logo-2.png" alt=""></a>			
             </div><!-- /.logo -->
             
             <!-- .Side-menu -->
             <div class="side-menu">
             <!-- .navigation -->
                 <ul class="navigation">
-                    <li><a href="index-2.html">Home</a></li>
-                    <li class="dropdown"><a href="#">About Us</a>
-                        <ul>
-                            <li><a href="about-us.html">About Us</a></li>
-                            <li><a href="our-team.html">Our Team</a></li>
-                            <li><a href="team-single.html">Team Single</a></li>
-                        </ul>
+                    <li class="current"><a href="index-2.html">Home</a></li>
+                    <li class="dropdown"><a href="/about">About Us</a>
+                        
                     </li>
-                    <li class="dropdown"><a href="#">Services</a>
-                        <ul class="submenu">
-                            <li><a href="services.html">Our Services</a></li>
-                            <li><a href="service-single.html">Services Single</a></li>
-                        </ul>
+                    <li class="dropdown"><a href="/discover">Our Categories </a>
+                       
                     </li>
-                    <li class="dropdown"><a href="#">Projects</a>
-                        <ul class="submenu">
-                            <li><a href="portfolio-default.html">Projects Standard</a></li>
-                            <li><a href="portfolio-fullwidth.html">Projects Fullwidth</a></li>
-                            <li><a href="portfolio-with-text.html">Projects With Text</a></li>
-                            <li><a href="portfolio-single-one.html">Projects Single 01</a></li>
-                            <li><a href="portfolio-single-two.html">Projects Single 02</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a href="#">Blog</a>
-                        <ul class="submenu">
-                            <li><a href="blog.html">Blog Standard</a></li>
-                            <li><a href="blog-large-image.html">Blog large Image</a></li>
-                            <li><a href="blog-single.html">Blog Single</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="/contact">Contact</a></li>
                     
-                    <li class="dropdown current"><a href="#">Shop</a>
-                        <ul class="submenu">
-                            <li><a href="shop.html">Shop Products</a></li>
-                            <li><a href="shop-single.html">Shop Single</a></li>
-                            <li><a href="shopping-cart.html">Shopping Cart</a></li>
-                            <li><a href="checkout.html">Checkout</a></li>
-                            <li><a href="register.html">Login / Register</a></li>
-                        </ul>
-                    </li>
+                    {% if request.session.logname %}
+                                    
+                                    <li><a href="/logout/">Logout</a></li>
+                                {% else %}
+                                    <li><a href="/register">Register</a></li>
+                                    <li><a href="/login">Login</a></li>
+                                {% endif %}
                     
-                    <li class="dropdown"><a href="#">Pages</a>
-                        <ul class="submenu">
-                            <li><a href="about-us.html">About Us</a></li>
-                            <li><a href="our-team.html">Our Team</a></li>
-                            <li><a href="team-single.html">Team Single</a></li>
-                            <li><a href="pricing.html">Pricing Table</a></li>
-                            <li><a href="faqs.html">FAQ's</a></li>
-                        </ul>
-                    </li>
-                    
-                    <li><a href="contact.html">Contact</a></li>
+                   
                 </ul>
             </div><!-- /.Side-menu -->
         
@@ -250,14 +172,12 @@
                 <ul>
                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    
                 </ul>
             </div>
         
         </div><!-- / Hidden Bar Wrapper -->
-    </section>
-    <!-- / Hidden Bar -->
+    </section> Bar -->
     
     
     <!--Page Title-->

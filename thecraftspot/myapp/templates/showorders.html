@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+<meta charset="utf-8">
+<title>The Craft Spot| Orders </title>
+<!-- Stylesheets -->
+<link href="static/css/bootstrap.css" rel="stylesheet">
+<link href="static/css/style.css" rel="stylesheet">
+<link href="static/css/nouislider.css" rel="stylesheet">
+<link href="static/css/nouislider.pips.css" rel="stylesheet">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<link href="static/css/responsive.css" rel="stylesheet">
+<!--[if lt IE 9]><script src="static/https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="static/js/respond.js"></script><![endif]-->
+</head>
+
+<body>
+
+<div class="page-wrapper">
+
+    <!-- Preloader -->
+    <div class="preloader"></div>
+
+        <!-- Main Header-->
+        <header class="main-header">
+            <!-- Header Top -->
+            <div class="header-top">
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        
+                        <!--Top Left-->
+                        
+                        
+                        <!--Top Right-->
+                        <div class="top-right pull-right">
+                            
+        
+                            <!--social-icon-->
+                            <div class="social-icon">
+                                <a href="#"><span class="fa fa-facebook"></span></a>
+                                <a href="#"><span class="fa fa-twitter"></span></a>
+                                
+                            </div>
+                            
+                            <ul>
+                                {% if request.session.logname %}
+                                <li><span class="fa fa-envelope-o"></span>Welcome , {{ request.session.logname }}</li>
+                                {% endif %}
+                                
+                            </ul>
+                            
+                            
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div><!-- Header Top End -->
+            
+            
+            <!-- Main Box -->
+            <div class="main-box">
+                <div class="auto-container">
+                    <div class="outer-container clearfix">
+                        <!--Logo Box-->
+                        <div class="logo-box">
+                            <div class="logo"><a href="index-2.html"><img src="static/images/image.png" alt="" style="margin: 10px; width: 200px; height =200px;"></a></div>
+                        </div>
+                        
+                        <!--Nav Outer-->
+                        <div class="nav-outer clearfix">
+                            <!-- Main Menu -->
+                            <nav class="main-menu">
+                                <div class="navbar-header">
+                                    <!-- Toggle Button -->    	
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+                                
+                                <div class="navbar-collapse collapse clearfix">
+                                    <ul class="navigation clearfix">
+                                        <li class="current"><a href="index-2.html">Home</a></li>
+                                        <li class="dropdown"><a href="/about">About Us</a>
+                                        </li>
+                                   
+                                        <li class="dropdown"><a href="/discover">Our Categories</a>
+                                        </li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                        {% if request.session.logname %}
+                                        
+                                        <li><a href="/logout/">Logout</a></li>
+                                    {% else %}
+                                        <li><a href="/register">Register</a></li>
+                                        <li><a href="/login">Login</a></li>
+                                    {% endif %}
+                                        
+                                        
+                                        
+                                     </ul>
+                                </div>
+                            </nav><!-- Main Menu End-->
+                            
+                        </div><!--Nav Outer End-->
+                        {% if request.session.logname %}
+                        <!-- Hidden Nav Toggler -->
+                        <div class="nav-toggler">
+                        <button class="hidden-bar-opener"><span class="icon fa fa-bars"></span></button>
+                        </div><!-- / Hidden Nav Toggler -->
+                        
+                        <!--Search Btn-->
+                        <a href="/shopping-cart" class="cart-btn-outer"><div class="icon"><span class="flaticon-shopping-cart">&nbsp; &nbsp;&nbsp; &nbsp;</span></div></a>
+                    <div class="header-search-icon search-box-btn"><span class="flaticon-search"></span></div>
+                </div>
+                <a href="/showorders" class="cart-btn-outer"><div class="icon"> <span class="flaticon-shopping-bag"></span></div></a>                {% endif %}
+            	</div> 
+                    </div>    
+                </div>
+            </div>
+        
+        </header>
+        <!--End Main Header -->
+        
+        
+        <!-- Hidden Navigation Bar -->
+        <section class="hidden-bar right-align">
+            
+            <div class="hidden-bar-closer">
+                <button class="btn"><i class="fa fa-close"></i></button>
+            </div>
+            
+            <!-- Hidden Bar Wrapper -->
+            <div class="hidden-bar-wrapper">
+            
+                <!-- .logo -->
+                <div class="logo text-center">
+                    <a href="index-2.html"><img src="static/images/logo-2.png" alt=""></a>			
+                </div><!-- /.logo -->
+                
+                <!-- .Side-menu -->
+                <div class="side-menu">
+                <!-- .navigation -->
+                    <ul class="navigation">
+                        <li class="current"><a href="index-2.html">Home</a></li>
+                        <li class="dropdown"><a href="/about">About Us</a>
+                            
+                        </li>
+                        <li class="dropdown"><a href="/discover">Our Categories </a>
+                           
+                        </li>
+                        <li><a href="/contact">Contact</a></li>
+                        
+                        {% if request.session.logname %}
+                                        
+                                        <li><a href="/logout/">Logout</a></li>
+                                    {% else %}
+                                        <li><a href="/register">Register</a></li>
+                                        <li><a href="/login">Login</a></li>
+                                    {% endif %}
+                        
+                       
+                    </ul>
+                </div><!-- /.Side-menu -->
+            
+                <div class="social-icons">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        
+                    </ul>
+                </div>
+            
+            </div><!-- / Hidden Bar Wrapper -->
+        </section>
+    <!-- / Hidden Bar -->
+
+
+    <!--Page Title-->
+    <section class="page-title" style="background-image:url(static/images/background/bg-page-title-1.jpg);">
+        <div class="auto-container">
+            <h1>Orders</h1>
+        </div>
+    </section>
+
+    <!--Page Info-->
+    <section class="page-info">
+        <div class="auto-container clearfix">
+            <div class="pull-left"><h2>Orders</h2></div>
+            <div class="pull-right">
+                <ul class="bread-crumb clearfix">
+                    <li><a href="/index">Home</a></li>
+<!--                    <li><a href="/shop">Shop</a></li>-->
+                    <li>Orders</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!--Cart Section-->
+    <section class="cart-section" >
+        <div class="auto-container">
+
+            <!--Cart Outer-->
+            <div class="cart-outer">
+                <div class="table-outer">
+                    <table class="cart-table">
+                        <thead class="cart-header">
+                            <tr>
+
+                                <th>Sr. No</th>
+                                <th>Name</th>
+                                <th>Total Amount</th>
+                                <th>Address</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody >
+
+                            {% for order in orders %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ order.NAME }}</td>
+            <td>{{ order.FINALTOTAL }}</td>
+            <td>{{ order.ADDRESS }}</td>
+            <td>{{ order.PAY_MODE }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">No orders found</td>
+        </tr>
+        {% endfor %}
+
+
+                                <!--
+                            </tr>
+
+
+                     <tr>-->
+<!--                                <td colspan="2" class="prod-column">-->
+<!--                                    <div class="column-box">-->
+<!--                                        <figure class="prod-thumb"><a href="#"><img src="static/images/resource/products/thumb-2.jpg" alt=""></a></figure>-->
+<!--                                        <h3 class="prod-title">Greeney Study Chair</h3>-->
+<!--                                    </div>-->
+<!--                                </td>-->
+<!--                                <td class="qty"><input class="quantity-spinner" type="text" value="2" name="quantity"></td>-->
+<!--                                <td class="unit-price"><div class="available-info"><span class="icon fa fa-check"></span> Item(s) <br>Avilable Now</div></td>-->
+<!--                                <td class="price">$19.99</td>-->
+<!--                                <td class="sub-total">$39.98</td>-->
+<!--                                <td class="remove"><a href="#" class="remove-btn"><span class="fa fa-trash-o"></span> Remove</a></td>-->
+<!--                            </tr>-->
+<!--                            -->
+<!--                            <tr>-->
+<!--                                <td colspan="2" class="prod-column">-->
+<!--                                    <div class="column-box">-->
+<!--                                        <figure class="prod-thumb"><a href="#"><img src="static/images/resource/products/thumb-3.jpg" alt=""></a></figure>-->
+<!--                                        <h3 class="prod-title">Flower Planter Table</h3>-->
+<!--                                    </div>-->
+<!--                                </td>-->
+<!--                                <td class="qty"><input class="quantity-spinner" type="text" value="1" name="quantity"></td>-->
+<!--                                <td class="unit-price"><div class="available-info"><span class="icon fa fa-check"></span> Item(s) <br>Avilable Now</div></td>-->
+<!--                                <td class="price">$30.99</td>-->
+<!--                                <td class="sub-total">$30.99</td>-->
+<!--                                <td class="remove"><a href="#" class="remove-btn"><span class="fa fa-trash-o"></span> Remove</a></td>-->
+<!--                            </tr>-->
+<!--                            -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="coupon-outer clearfix">
+
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+     <!--Main Footer-->
+   <footer class="main-footer" style="background-image:url(/static/images/background/footer-bg.jpg);">
+    <div class="auto-container">
+        <!--Widgets Section-->
+        <div class="widgets-section">
+            <div class="row clearfix">
+                <!--Footer Column - About Us-->
+                <div class="footer-column col-md-4 col-sm-4 col-xs-12">
+                    <div class="footer-widget about-widget">
+                        <div class="footer-logo"><figure><a href="index"><img src="/static/images/logo-4.png" alt=""></a></figure></div>
+                        <div class="widget-content">
+<!--                            <div class="text">Must explain too you all this mistaken idea off denouncing pleasure and well praising pain was born and I will gives you complete accounts systems must explain to idea of denouncing.</div>-->
+                            <div class="text">Home decor isn't about rejecting enjoyment and embracing discomfort. Our goal is to offer you helpful insights into the world of interior design. We provide a carefully chosen range of arts and decorations that prioritize both comfort and style. Allow us to assist you in transforming your living space into a personal sanctuary that enhances your daily life experiences.</div>
+                            <ul class="contact-info">
+                                <li><span class="icon fa fa-map-marker"></span>Ashram Road, 9, Vidya Vihar Colony Rd, opp. Fortune Landmark Hotel, Usmanpura, Ahmedabad, Gujarat 380013</li>
+                                <li><span class="icon fa fa-phone"></span>079 2755 6140</li>
+                                <li><span class="icon fa fa-envelope-o"></span>Decordelightsupport@gmail.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Footer Column - Popular Tags-->
+                <div class="footer-column col-md-4 col-sm-4 col-xs-12">
+                    <div class="footer-widget tags-widget">
+                        <h2>Popular Tags</h2>
+                        <div class="widget-content">
+                            <ul class="tags-list">
+                                {% for i in catdata %}
+                                    <li><a href="/productfilter/{{ i.id }}">{{ i.CAT_NAME }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Footer Column - Send Message Us-->
+                <div class="footer-column col-md-4 col-sm-4 col-xs-12">
+                    <div class="footer-widget tags-widget">
+                        <h2>Get in Touch</h2>
+                        <!--form-box-->
+                        <div class="form-box default-form">
+                            <div class="contact-form default-form">
+                                <form action="/insertcontactdata" method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="row clearfix">
+                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" name="subject" value="" placeholder="Subject *" required>
+                                        </div>
+                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" name="username" value="" placeholder="Your Name *" required>
+                                        </div>
+                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                            <input type="email" name="email" value="" placeholder="Your Mail *" required>
+                                        </div>
+                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" name="phone" value="" placeholder="Phone Number">
+                                        </div>
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                            <textarea name="message" placeholder="Message *"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                            <input type="submit" class="theme-btn btn-style-two" name="Submit" value="SEND US" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--Footer Bottom-->
+    <div class="footer-bottom">
+        <div class="auto-container">
+            <div class="clearfix">
+                <div class="pull-right">
+                    <ul class="footer-nav">
+                        <li><a href=/index>Home</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/feedback">Feedback</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+</div>
+<!--End pagewrapper-->
+
+
+<!--Search Popup-->
+<div id="search-popup" class="search-popup">
+	<div class="close-search theme-btn"><span class="flaticon-unchecked"></span></div>
+	<div class="popup-inner">
+
+    	<div class="search-form">
+        	<form method="post" action="#">
+            	<div class="form-group">
+                	<fieldset>
+                        <input type="search" class="form-control" name="search-input" value="" placeholder="Search Here" required >
+                        <input type="submit" value="Search" class="theme-btn">
+                    </fieldset>
+                </div>
+            </form>
+
+            <br>
+            <h3>Recent Search Keywords</h3>
+            <ul class="recent-searches">
+                <li><a href="#">Wood Art</a></li>
+                <li><a href="#">Wall Art</a></li>
+                <li><a href="#">Resin Art</a></li>
+                <li><a href="#">Lighting</a></li>
+                <!--<li><a href="#">Logistics</a></li>
+                <li><a href="#">Freedom</a></li>-->
+            </ul>
+
+        </div>
+
+    </div>
+</div>
+
+<!--Scroll to top-->
+<div class="scroll-to-top scroll-to-target" data-target=".main-header"><span class="fa fa-long-arrow-up"></span></div>
+
+
+<script src="static/js/jquery.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="static/js/jquery.fancybox.pack.js"></script>
+<script src="static/js/jquery.fancybox-media.js"></script>
+<script src="static/js/nouislider.js"></script>
+<script src="static/js/jquery.bootstrap-touchspin.js"></script>
+<script src="static/js/owl.js"></script>
+<script src="static/js/wow.js"></script>
+<script src="static/js/script.js"></script>
+</body>
+
+
+</html>

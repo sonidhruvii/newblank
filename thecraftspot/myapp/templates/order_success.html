@@ -1,0 +1,12 @@
+<h2>Thank You for Your Order!</h2>
+<p>Your order is confirmed.</p>
+
+{% if payment_id %}
+    <p>Payment ID: <strong>{{ payment_id }}</strong></p>
+    <p>Your payment has been successfully processed.</p>
+{% else %}
+    <p>You chose <strong>Cash on Delivery (COD)</strong>. </p>
+{% endif %}
+
+<p>Thank you for shopping with <strong>The Craft Spot</strong>!</p>
+<a href="/">Go to Homepage</a>

@@ -1,0 +1,30 @@
+<button id="pay-btn">Pay Now</button>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+document.getElementById("pay-btn").onclick = function () {
+    alert("Button Clicked!");  // Debugging step
+
+    var options = {
+        "key": "rzp_test_wE164z4U9KaL7S", // Replace with valid API key
+        "amount": 50000, // 500 INR in paise
+        "currency": "INR",
+        "name": "The Craft Spot",
+        "description": "Test Transaction",
+        "handler": function (response) {
+            alert("Payment Successful! ID: " + response.razorpay_payment_id);
+        },
+        "prefill": {
+            "name": "Dhruvi Soni",
+            "email": "test@example.com",
+            "contact": "9999999999"
+        },
+        "theme": {
+            "color": "#3399cc"
+        }
+    };
+
+    var rzp1 = new Razorpay(options);
+    rzp1.open();
+};
+</script>

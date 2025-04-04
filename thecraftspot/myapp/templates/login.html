@@ -5,381 +5,406 @@
 
 <head>
 <meta charset="utf-8">
-<title>The Craft SPot | Login</title>
+<title>The Craft Spot | Login</title>
 <!-- Stylesheets -->
-<link href="static/css/bootstrap.css" rel="stylesheet">
-<link href="static/css/style.css" rel="stylesheet">
-<link href="static/css/nouislider.css" rel="stylesheet">
-<link href="static/css/nouislider.pips.css" rel="stylesheet">
-<link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon">
-<link rel="icon" href="static/images/favicon.ico" type="image/x-icon">
+<link href="/static/css/bootstrap.css" rel="stylesheet">
+<link href="/static/css/style.css" rel="stylesheet">
+<link href="/static/css/nouislider.css" rel="stylesheet">
+<link href="/static/css/nouislider.pips.css" rel="stylesheet">
+<link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<link href="static/css/responsive.css" rel="stylesheet">
-<!--[if lt IE 9]><script src="static/https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+<link href="/static/css/responsive.css" rel="stylesheet">
+<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
 <!--[if lt IE 9]><script src="static/js/respond.js"></script><![endif]-->
 </head>
 
 <body>
 
 <div class="page-wrapper">
-
-    <!-- Preloader -->
-    <div class="preloader"></div>
-
-        <!-- Main Header-->
+ 	
+   
+ 	
+    <!-- Main Header-->
     <header class="main-header">
     	<!-- Header Top -->
     	<div class="header-top">
         	<div class="auto-container">
             	<div class="row clearfix">
-
+                    
+                    <!--Top Left-->
+                    
+                    
+                    <!--Top Right-->
                     <div class="top-right pull-right">
+                        
 
                     	<!--social-icon-->
                         <div class="social-icon">
-
+                        	<a href="#"><span class="fa fa-facebook"></span></a>
+                            <a href="#"><span class="fa fa-twitter"></span></a>
+                            
                         </div>
-
+                        
                     	<ul>
-                        <li></li>
                             {% if request.session.logname %}
-                        	<li><span class="fa fa-user"></span><a href="/profile"> Welcome , {{ request.session.logname }}</a></li>
+                            <li><span class="fa fa-envelope-o"></span>Welcome , {{ request.session.logname }}</li>
                             {% endif %}
-
-
+                        	
                         </ul>
-
-
+                        
+                        
                     </div>
-
+                    
                 </div>
-
+                
             </div>
         </div><!-- Header Top End -->
-
-
+        
+        
         <!-- Main Box -->
     	<div class="main-box">
         	<div class="auto-container">
             	<div class="outer-container clearfix">
                     <!--Logo Box-->
                     <div class="logo-box">
-                        <div class="logo"><a href="index"><img src="static/images/logo.png" alt=""></a></div>
-
+                        <div class="logo"><a href="/"><img src="static/images/image.png" alt="" style="margin: 10px; width: 200px; height =200px;"></a></div>
                     </div>
-
+                    
                     <!--Nav Outer-->
                     <div class="nav-outer clearfix">
                         <!-- Main Menu -->
                         <nav class="main-menu">
                             <div class="navbar-header">
-                                <!-- Toggle Button -->
+                                <!-- Toggle Button -->    	
                                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                                 </button>
-
                             </div>
-
+                            
                             <div class="navbar-collapse collapse clearfix">
                                 <ul class="navigation clearfix">
-
-                                    <li class="current"><a href="/index">Home</a></li>
-                                    <li><a href="/services">Category</a></li>
-                                    <li><a href="/shop">All Products</a></li>
-                                    {% if request.session.logname %}
-                                    {% if request.session.logrole == '3' %}
-                                    <li class="dropdown"><a href="#">Pages</a>
-                                    	<ul>
-                                            <li><a href="/addproduct">Add Product</a></li>
-                                            <li><a href="/manageproduct">Manage Product</a></li>
-                                            <li><a href="/manageorder">Manage Order</a></li>
-                                        </ul>
+                                    <li class="current"><a href="/">Home</a></li>
+                                    <li class="dropdown"><a href="/about">About Us</a>
                                     </li>
-
-                                    {% endif %}
-                                     <li><a href="contact">Contact</a></li>
-                                     <li><a href="/feedback">Feedback</a></li>
-                                     <li><a href="/complain">Complain</a></li>
-                                     <li><a href="/logout">Logout</a></li>
-                                    {% else %}
-                                     <li><a href="/register">Register</a></li>
-                                    <li><a href="/login">Login </a></li>
-                                    {% endif %}
-
-<!--                      
-
-
+                               
+                                    <li class="dropdown"><a href="/discover">Our Categories</a>
+                                    </li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                    {% if request.session.logname %}
+                                    
+                                    <li><a href="/logout/">Logout</a></li>
+                                {% else %}
+                                    <li><a href="/register">Register</a></li>
+                                    <li><a href="/login">Login</a></li>
+                                {% endif %}
+                                    
+                                    
+                                    
                                  </ul>
                             </div>
                         </nav><!-- Main Menu End-->
-
+                        
                     </div><!--Nav Outer End-->
-
+                    {% if request.session.logname %}
                     <!-- Hidden Nav Toggler -->
                     <div class="nav-toggler">
                     <button class="hidden-bar-opener"><span class="icon fa fa-bars"></span></button>
                     </div><!-- / Hidden Nav Toggler -->
-
-
+                    
                     <!--Search Btn-->
-                    {% if request.session.logname %}
-                    {% if request.session.logrole == '2' %}
-                    <a href="/shopping-cart" class="cart-btn-outer"><div class="icon"><span class="flaticon-shopping-cart">&nbsp; &nbsp;&nbsp; &nbsp;</span></div></a>
+                    <a href="shopping-cart" class="cart-btn-outer"><div class="icon"><span class="flaticon-shopping-bag"></span><span class="count"></span></div></a>
                     <div class="header-search-icon search-box-btn"><span class="flaticon-search"></span></div>
-                </div>
-                <a href="/showorders" class="cart-btn-outer"><div class="icon"> <span class="flaticon-shopping-bag"></span></div></a>
-                {% endif %}
-                {% endif %}
+                    {% endif %}
+            	</div>    
             </div>
         </div>
-
+    
     </header>
     <!--End Main Header -->
+    
+    
     <!-- Hidden Navigation Bar -->
     <section class="hidden-bar right-align">
-
+        
         <div class="hidden-bar-closer">
             <button class="btn"><i class="fa fa-close"></i></button>
         </div>
-
+        
         <!-- Hidden Bar Wrapper -->
         <div class="hidden-bar-wrapper">
-
+        
             <!-- .logo -->
             <div class="logo text-center">
-                <a href="index"><img src="static/images/logo-2.png" alt=""></a>
+                <a href="index-2.html"><img src="static/images/logo-2.png" alt=""></a>			
             </div><!-- /.logo -->
-
+            
             <!-- .Side-menu -->
             <div class="side-menu">
             <!-- .navigation -->
                 <ul class="navigation">
-                    <li class="current"><a href="/index">Home</a></li>
-                                    <li><a href="/services">Category</a></li>
-                                    <li><a href="/shop">All Products</a></li>
-                                    {% if request.session.logname %}
-                                    {% if request.session.logrole == '3' %}
-                                    <li class="dropdown"><a href="#">Pages</a>
-                                    	<ul>
-                                            <li><a href="/addproduct">Add Product</a></li>
-                                            <li><a href="/manageproduct">Manage Product</a></li>
-                                            <li><a href="/manageorder">Manage Order</a></li>
-                                        </ul>
-                                    </li>
-
-                                    {% endif %}
-                                     <li><a href="contact">Contact</a></li>
-                                     <li><a href="/feedback">Feedback</a></li>
-                                     <li><a href="/complain">Complain</a></li>
-                                     <li><a href="/logout">Logout</a></li>
-                                    {% else %}
-                                     <li><a href="/register">Register</a></li>
-                                    <li><a href="/login">Login </a></li>
-                                    {% endif %}
+                    <li class="current"><a href="index-2.html">Home</a></li>
+                    <li class="dropdown"><a href="/about">About Us</a>
+                        
+                    </li>
+                    <li class="dropdown"><a href="/discover">Our Categories </a>
+                       
+                    </li>
+                    <li><a href="/contact">Contact</a></li>
                     
+                    {% if request.session.logname %}
+                                    
+                                    <li><a href="/logout/">Logout</a></li>
+                                {% else %}
+                                    <li><a href="/register">Register</a></li>
+                                    <li><a href="/login">Login</a></li>
+                                {% endif %}
+                    
+                   
                 </ul>
             </div><!-- /.Side-menu -->
-
+        
             <div class="social-icons">
-
-            </div>
                 <ul>
-                        <li></li>
-                            {% if request.session.logname %}
-                        	<li><span class="fa fa-user"></span><a href="/profile"> Welcome , {{ request.session.logname }}</a></li>
-                            {% endif %}
-
-
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    
                 </ul>
+            </div>
+        
         </div><!-- / Hidden Bar Wrapper -->
     </section>
     <!-- / Hidden Bar -->
-
-
+    
+    
     <!--Page Title-->
-    <section class="page-title" style="background-image:url(static/images/background/bg-page-title-1.jpg);">
+    <section class="page-title" style="background-image:url(/static/images/background/bg.jpg);">
         <div class="auto-container">
-            <h1>  Login</h1>
+            <h1>Login </h1>
         </div>
     </section>
-
+    
     <!--Page Info-->
     <section class="page-info">
         <div class="auto-container clearfix">
-            <div class="pull-left"><h2> Login</h2></div>
+            
             <div class="pull-right">
                 <ul class="bread-crumb clearfix">
-                    <li><a href="/index">Home</a></li>
-                    <li><a href="/shop">Shop</a></li>
-                    <li>Login</li>
+                    <li><a href="index-2.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li>Login </li>
                 </ul>
             </div>
         </div>
     </section>
-
-    <!--Login Section-->
-    <section class="login-section">
-        <div class="auto-container">
-            <div class="row clearfix">
-
-
-{% if messages %}
+    {% if messages %}
 {% for i in messages %}
 <script>alert("{{ i }}");</script>
 {% endfor %}
 {% endif %}
+    <!--Register Section-->
+    <section class="register-section">
+        <div class="auto-container">
+            <div class="row clearfix">
+                
+                <!--Form Column-->
                 <div class="form-column column col-lg-6 col-md-6 col-sm-12 col-xs-12">
-
+                
                     <div class="sec-title medium">
                         <h2>Login Now</h2>
                     </div>
-
+                    
                     <!--Login Form-->
                     <div class="styled-form login-form">
-                        <form action="/checklogindata" method="post" enctype="multipart/form-data">
-                             {% csrf_token %}
-<!--                            <div class="form-group">-->
-<!--                                <span class="adon-icon"><span class="fa fa-user"></span></span>-->
-<!--                                <input type="text" name="username" value="" placeholder="Your Name *">-->
-<!--                            </div>-->
-                            <div class="form-group">
-                                <span class="adon-icon"><span class="fa fa-envelope-o"></span></span>
-                                <input type="email" name="useremail" value="" placeholder="Enter Mail id *">
-
-                            </div>
-                            <div class="form-group">
-                                <span class="adon-icon"><span class="fa fa-unlock-alt"></span></span>
-                                <input type="password" name="userpassword" value="" pattern=".{8,}" title="Password must be at least 8 characters long" placeholder="Enter Password">
-                                <small>Tip: Password must be at least 6 characters long.</small>
-                            </div>
-                            <div class="clearfix">
-                                <div class="form-group pull-left">
-<!--                                    <button type="button" class="theme-btn btn-style-two">Login</button>-->
-                                     <input type="submit" class="theme-btn btn-style-two" name="Submit" value="Login" />
+                        <div class="styled-form login-form">
+                            <form action="/checklogindata" method="post" enctype="multipart/form-data">
+                                 {% csrf_token %}
+    <!--                            <div class="form-group">-->
+    <!--                                <span class="adon-icon"><span class="fa fa-user"></span></span>-->
+    <!--                                <input type="text" name="username" value="" placeholder="Your Name *">-->
+    <!--                            </div>-->
+                                <div class="form-group">
+                                    <span class="adon-icon"><span class="fa fa-envelope-o"></span></span>
+                                    <input type="email" name="useremail" value="" placeholder="Enter Mail id *">
+    
                                 </div>
-<!--                                <div class="form-group padd-top-10 pull-right">-->
-<!--&lt;!&ndash;                                    * You must be a free  Logedin user to submit content.&ndash;&gt;-->
-<!--                                <a href="/login">Forgot Password?</a>-->
-<!--                                </div>-->
-                                <div class="form-group padd-top-10 pull-right">
-<!--                                    * You must be a free  Logedin user to submit content.-->
-<!--                                <a href="/forgotpassword">Forgot Password?</a>-->
-                                    <a href="/register">Create a new account?</a>
+                                <div class="form-group">
+                                    <span class="adon-icon"><span class="fa fa-unlock-alt"></span></span>
+                                    <input type="password" name="userpassword" value="" pattern=".{8,}" title="Password must be at least 8 characters long" placeholder="Enter Password">
+                                    <small>Tip: Password must be at least 6 characters long.</small>
                                 </div>
-                            </div>
-
-                        </form>
+                                <div class="clearfix">
+                                    <div class="form-group pull-left">
+    <!--                                    <button type="button" class="theme-btn btn-style-two">Login</button>-->
+                                         <input type="submit" class="theme-btn btn-style-two" name="Submit" value="Login" />
+                                    </div>
+    <!--                                <div class="form-group padd-top-10 pull-right">-->
+    <!--&lt;!&ndash;                                    * You must be a free  Logedin user to submit content.&ndash;&gt;-->
+    <!--                                <a href="/login">Forgot Password?</a>-->
+    <!--                                </div>-->
+                                    <div class="form-group padd-top-10 pull-right">
+    <!--                                    * You must be a free  Logedin user to submit content.-->
+    <!--                                <a href="/forgotpassword">Forgot Password?</a>-->
+                                        <a href="/register">Create a new account?</a>
+                                    </div>
+                                </div>
+    
+                            </form>
                     </div>
-
+                    
                 </div>
-
+                
+                <!--Form Column-->
+                
+                
             </div>
         </div>
     </section>
-
-
-
+      
+    
+    
      <!--Main Footer-->
-    <footer class="main-footer" style="background-image:url(static/images/background/footer-bg.jpg);">
-    <div class="auto-container">
-        <!--Widgets Section-->
-        <div class="widgets-section">
-            <div class="row clearfix">
-                <!--Footer Column - About Us-->
-                <div class="footer-column col-md-4 col-sm-4 col-xs-12">
-                    <div class="footer-widget about-widget">
-                        <div class="footer-logo"><figure><a href="index"><img src="static/images/logo-4.png" alt=""></a></figure></div>
-                        <div class="widget-content">
-<!--                            <div class="text">Must explain too you all this mistaken idea off denouncing pleasure and well praising pain was born and I will gives you complete accounts systems must explain to idea of denouncing.</div>-->
-                            <div class="text">Home decor isn't about rejecting enjoyment and embracing discomfort. Our goal is to offer you helpful insights into the world of interior design. We provide a carefully chosen range of arts and decorations that prioritize both comfort and style. Allow us to assist you in transforming your living space into a personal sanctuary that enhances your daily life experiences.</div>
-                            <ul class="contact-info">
-                                <li><span class="icon fa fa-map-marker"></span>Ashram Road, 9, Vidya Vihar Colony Rd, opp. Fortune Landmark Hotel, Usmanpura, Ahmedabad, Gujarat 380013</li>
-                                <li><span class="icon fa fa-phone"></span>079 2755 6140</li>
-                                <li><span class="icon fa fa-envelope-o"></span>Decordelightsupport@gmail.com</li>
-                            </ul>
+    <footer class="main-footer" style="background-image:url(/static/images/background/footer-bg.jpg);">
+    	<div class="auto-container">
+        
+            <!--Widgets Section-->
+            <div class="widgets-section">
+            	<div class="row clearfix">
+                	<!--Big Column-->
+                	<div class="big-column col-md-6 col-sm-12 col-xs-12">
+                    	<div class="row clearfix">
+                            
+                            <!--Footer Column-->
+                        	<div class="footer-column col-md-6 col-sm-6 col-xs-12">
+                            	<div class="footer-widget about-widget">
+                                	<div class="footer-logo"><figure><a href="index-2.html"><img src="/static/images/logo-4.png" alt=""></a></figure></div>
+                                    <div class="widget-content">
+                                    	<div class="text">Must explain too you all this mistaken idea off denouncing pleasure and well praising pain was born and I will gives you complete accounts systems must explain to idea of denouncing.</div>
+                                        <ul class="contact-info">
+                                        	<li><span class="icon fa fa-map-marker"></span>Rock St 12, Newyork City, USA</li>
+                                            <li><span class="icon fa fa-phone"></span>(526) 236-895-4732</li>
+                                            <li><span class="icon fa fa-envelope-o"></span>Decoratorssuport@gmail.com</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!--Footer Column-->
+                        	<div class="footer-column col-md-6 col-sm-6 col-xs-12">
+                            	<div class="footer-widget tags-widget">
+                                	<h2>Popular Tags</h2>
+                                    <div class="widget-content">
+                                    	<ul class="tags-list">
+                                        	<li><a href="#">Designs</a></li>
+                                            <li><a href="#">Tips</a></li>
+                                            <li><a href="#">Interior</a></li>
+                                            <li><a href="#">Doors</a></li>
+                                            <li><a href="#">Curtains</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="footer-widget gallery-widget">
+                                	<h2>Recent Works</h2>
+                                    <div class="gallery-widget-carousel">
+                                    	<div class="item"><figure class="post-thumb"><img src="/static/images/gallery/thumb-1.jpg" alt=""><a href="#" class="overlay-link"><span class="fa fa-link"></span></a></figure></div>
+                                        <div class="item"><figure class="post-thumb"><img src="/static/images/gallery/thumb-2.jpg" alt=""><a href="#" class="overlay-link"><span class="fa fa-link"></span></a></figure></div>
+                                        <div class="item"><figure class="post-thumb"><img src="/static/images/gallery/thumb-3.jpg" alt=""><a href="#" class="overlay-link"><span class="fa fa-link"></span></a></figure></div>
+                                        <div class="item"><figure class="post-thumb"><img src="/static/images/gallery/thumb-4.jpg" alt=""><a href="#" class="overlay-link"><span class="fa fa-link"></span></a></figure></div>
+                                        <div class="item"><figure class="post-thumb"><img src="/static/images/gallery/thumb-1.jpg" alt=""><a href="#" class="overlay-link"><span class="fa fa-link"></span></a></figure></div>
+                                        <div class="item"><figure class="post-thumb"><img src="/static/images/gallery/thumb-2.jpg" alt=""><a href="#" class="overlay-link"><span class="fa fa-link"></span></a></figure></div>
+                                        <div class="item"><figure class="post-thumb"><img src="/static/images/gallery/thumb-3.jpg" alt=""><a href="#" class="overlay-link"><span class="fa fa-link"></span></a></figure></div>
+                                        <div class="item"><figure class="post-thumb"><img src="/static/images/gallery/thumb-4.jpg" alt=""><a href="#" class="overlay-link"><span class="fa fa-link"></span></a></figure></div>
+                                        <div class="item"><figure class="post-thumb"><img src="/static/images/gallery/thumb-1.jpg" alt=""><a href="#" class="overlay-link"><span class="fa fa-link"></span></a></figure></div>
+                                        <div class="item"><figure class="post-thumb"><img src="/static/images/gallery/thumb-2.jpg" alt=""><a href="#" class="overlay-link"><span class="fa fa-link"></span></a></figure></div>
+                                        <div class="item"><figure class="post-thumb"><img src="/static/images/gallery/thumb-3.jpg" alt=""><a href="#" class="overlay-link"><span class="fa fa-link"></span></a></figure></div>
+                                        <div class="item"><figure class="post-thumb"><img src="/static/images/gallery/thumb-4.jpg" alt=""><a href="#" class="overlay-link"><span class="fa fa-link"></span></a></figure></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
-                </div>
-
-                <!--Footer Column - Popular Tags-->
-                <div class="footer-column col-md-4 col-sm-4 col-xs-12">
-                    <div class="footer-widget tags-widget">
-                        <h2>Popular Tags</h2>
-                        <div class="widget-content">
-                            <ul class="tags-list">
-                                {% for i in catdata %}
-                                    <li><a href="/productfilter/{{ i.id }}">{{ i.CAT_NAME }}</a></li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Footer Column - Send Message Us-->
-                {% if request.session.logname %}
-                <div class="footer-column col-md-4 col-sm-4 col-xs-12">
-                    <div class="footer-widget tags-widget">
-                        <h2>Get in Touch</h2>
-                        <!--form-box-->
-                        <div class="form-box default-form">
-                            <div class="contact-form default-form">
-                                <form action="/insertcontactdata" method="post" enctype="multipart/form-data">
-                                    {% csrf_token %}
-                                    <div class="row clearfix">
-                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" name="subject" value="" placeholder="Subject *" required>
+                    
+                    <!--Big Column-->
+                	<div class="big-column col-md-6 col-sm-12 col-xs-12">
+                    	<div class="row clearfix">
+                            
+                            <!--Footer Column-->
+                        	<div class="footer-column col-md-6 col-sm-6 col-xs-12">
+                            	<div class="footer-widget posts-widget">
+                                	<h2>Recent News</h2>
+                                    <div class="widget-content">
+                                    	<div class="posts">
+                                            <div class="post">
+                                                <figure class="post-thumb"><img src="/static/images/resource/post-thumb-1.jpg" alt=""><a href="#" class="overlay-link"><span class="flaticon-plus-1"></span></a></figure>
+                                                <div class="desc-text"><a href="#">How mistakens denoncings pleasure and complete.</a></div>
+                                                <div class="time"><span class="fa fa-clock-o"></span> Oct 03, 2015</div>
+                                            </div>
+                                            <div class="post">
+                                                <figure class="post-thumb"><img src="/static/images/resource/post-thumb-2.jpg" alt=""><a href="#" class="overlay-link"><span class="flaticon-plus-1"></span></a></figure>
+                                                <div class="desc-text"><a href="#">Pleasure praising pains was, expound actual teaching.</a></div>
+                                                <div class="time"><span class="fa fa-clock-o"></span> Aug 21, 2015</div>
+                                            </div>
                                         </div>
-                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" name="username" value="" placeholder="Your Name *" required>
-                                        </div>
-                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                            <input type="email" name="email" value="" placeholder="Your Mail *" required>
-                                        </div>
-                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" name="phone" value="" placeholder="Phone Number">
-                                        </div>
-                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                            <textarea name="message" placeholder="Message *"></textarea>
-                                        </div>
-                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                            <input type="submit" class="theme-btn btn-style-two" name="Submit" value="SEND US" />
+                                        <a class="view-more theme-btn" href="#">Read More <span class="fa fa-caret-right"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!--Footer Column-->
+                        	<div class="footer-column col-md-6 col-sm-6 col-xs-12">
+                            	<div class="footer-widget contact-widget">
+                                	<h2>Send Us Message</h2>
+                                    <div class="widget-content">
+                                        <div class="newsletter-form">
+                                            <form method="post" action="#">
+                                                <div class="form-group">
+                                                    <input type="text" name="name" value="" placeholder="Name" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="email" name="email" value="" placeholder="Email *" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <textarea name="message" placeholder="Message *" required></textarea>
+                                                </div>
+                                                <button type="submit" class="theme-btn btn-style-two">Send us</button>
+                                            </form>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
                             </div>
+                            
                         </div>
                     </div>
+                    
+                 </div>
+             </div>
+        
+        </div>
+        
+        <!--Footer Bottom-->
+         <div class="footer-bottom">
+         	<div class="auto-container">
+            	<div class="clearfix">
+                	<div class="pull-left"><div class="copyright"><a href="https://www.templateshub.net" target="_blank">Templates Hub</a></div></div>
+                    <div class="pull-right">
+                    	<ul class="footer-nav">
+                        	<li><a href="#">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Services</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
                 </div>
-{% endif %}
             </div>
         </div>
-    </div>
-
-    <!--Footer Bottom-->
-    <div class="footer-bottom">
-        <div class="auto-container">
-            <div class="clearfix">
-                <div class="pull-right">
-                    <ul class="footer-nav">
-                        <li><a href=/index>Home</a></li>
-                        <li><a href="/services">Services</a></li>
-                         {% if request.session.logname %}
-                        <li><a href="/contact">Contact</a></li>
-
-                        <li><a href="/feedback">Feedback</a></li>
-                        {% endif %}
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-
-
+    </footer>
+    
+    
 </div>
 <!--End pagewrapper-->
 
@@ -388,7 +413,7 @@
 <div id="search-popup" class="search-popup">
 	<div class="close-search theme-btn"><span class="flaticon-unchecked"></span></div>
 	<div class="popup-inner">
-
+    
     	<div class="search-form">
         	<form method="post" action="#">
             	<div class="form-group">
@@ -398,20 +423,19 @@
                     </fieldset>
                 </div>
             </form>
-
-           <br>
+            
+            <br>
             <h3>Recent Search Keywords</h3>
             <ul class="recent-searches">
-                <li><a href="#">Wood Art</a></li>
-                <li><a href="#">Wall Art</a></li>
-                <li><a href="#">Resin Art</a></li>
-                <li><a href="#">Lighting</a></li>
-                <!--<li><a href="#">Logistics</a></li>
-                <li><a href="#">Freedom</a></li>-->
+                <li><a href="#">Business</a></li>
+                <li><a href="#">Web Development</a></li>
+                <li><a href="#">SEO</a></li>
+                <li><a href="#">Logistics</a></li>
+                <li><a href="#">Freedom</a></li>
             </ul>
-
+        
         </div>
-
+        
     </div>
 </div>
 
@@ -419,15 +443,15 @@
 <div class="scroll-to-top scroll-to-target" data-target=".main-header"><span class="fa fa-long-arrow-up"></span></div>
 
 
-<script src="static/js/jquery.js"></script>
-<script src="static/js/bootstrap.min.js"></script>
-<script src="static/js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="static/js/jquery.fancybox.pack.js"></script>
-<script src="static/js/jquery.fancybox-media.js"></script>
-<script src="static/js/nouislider.js"></script>
-<script src="static/js/owl.js"></script>
-<script src="static/js/wow.js"></script>
-<script src="static/js/script.js"></script>
+<script src="js/jquery.js"></script> 
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/jquery.fancybox.pack.js"></script>
+<script src="js/jquery.fancybox-media.js"></script>
+<script src="js/nouislider.js"></script>
+<script src="js/owl.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/script.js"></script>
 </body>
 
 

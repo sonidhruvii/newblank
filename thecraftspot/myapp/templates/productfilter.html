@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+<meta charset="utf-8">
+<title>Decorators - Design Studio HTML Template | Our Shop</title>
+<!-- Stylesheets -->
+<link href="/static/css/bootstrap.css" rel="stylesheet">
+<link href="/static/css/style.css" rel="stylesheet">
+<link href="/static/css/nouislider.css" rel="stylesheet">
+<link href="/static/css/nouislider.pips.css" rel="stylesheet">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<link href="/static/css/responsive.css" rel="stylesheet">
+<!--[if lt IE 9]><script src="/static/https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="/static/js/respond.js"></script><![endif]-->
+</head>
+
+<body>
+
+<div class="page-wrapper">
+
+    <!-- Preloader -->
+    <div class="preloader"></div>
+
+    <!-- Main Header-->
+    <header class="main-header">
+    	<!-- Header Top -->
+    	<div class="header-top">
+        	<div class="auto-container">
+            	<div class="row clearfix">
+
+<!--                    &lt;!&ndash;Top Left&ndash;&gt;-->
+<!--                    <div class="top-left pull-left">-->
+<!--                    	<div class="dropdown lang-dropdown">-->
+<!--                        	<button  class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><img src="static/images/icons/flog.png" alt="" /> &nbsp; English <span class="fa fa-angle-down"></span></button>-->
+<!--                            <ul class="dropdown-menu">-->
+<!--                                <li><a href="#">French</a></li>-->
+<!--                                <li><a href="#">Espanish</a></li>-->
+<!--                                <li><a href="#">Chinese</a></li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    -->
+                    <!--Top Right-->
+                    <div class="top-right pull-right">
+
+                    	<!--social-icon-->
+                        <div class="social-icon">
+
+                        </div>
+
+                    	<ul>
+                        <li></li>
+                            {% if request.session.logname %}
+                        	<li><span class="fa fa-user"></span><a href="/profile"> Welcome , {{ request.session.logname }}</a></li>
+                            {% endif %}
+
+
+                        </ul>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div><!-- Header Top End -->
+
+
+        <!-- Main Box -->
+    	<div class="main-box">
+        	<div class="auto-container">
+            	<div class="outer-container clearfix">
+                    <!--Logo Box-->
+                    <div class="logo-box">
+                        <div class="logo"><a href="index"><img src="static/images/logo.png" alt=""></a></div>
+
+                    </div>
+
+                    <!--Nav Outer-->
+                    <div class="nav-outer clearfix">
+                        <!-- Main Menu -->
+                        <nav class="main-menu">
+                            <div class="navbar-header">
+                                <!-- Toggle Button -->
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                </button>
+
+                            </div>
+
+                            <div class="navbar-collapse collapse clearfix">
+                                <ul class="navigation clearfix">
+
+                                    <li class="current"><a href="/index">Home</a></li>
+                                    <li><a href="/services">Category</a></li>
+                                    <li><a href="/shop">All Products</a></li>
+                                    {% if request.session.logname %}
+                                    {% if request.session.logrole == '3' %}
+                                    <li class="dropdown"><a href="#">Pages</a>
+                                    	<ul>
+                                            <li><a href="/addproduct">Add Product</a></li>
+                                            <li><a href="/manageproduct">Manage Product</a></li>
+                                            <li><a href="/manageorder">Manage Order</a></li>
+                                        </ul>
+                                    </li>
+
+                                    {% endif %}
+                                     <li><a href="contact">Contact</a></li>
+                                     <li><a href="/feedback">Feedback</a></li>
+                                     <li><a href="/complain">Complain</a></li>
+                                     <li><a href="/logout">Logout</a></li>
+                                    {% else %}
+                                     <li><a href="/register">Register</a></li>
+                                    <li><a href="/login">Login </a></li>
+                                    {% endif %}
+
+<!--                                    <li class="dropdown"><a href="#">Services</a>-->
+<!--                                    	<ul>-->
+<!--                                            <li><a href="services.html">Our Services</a></li>-->
+<!--                                            <li><a href="service-single.html">Services Single</a></li>-->
+<!--                                        </ul>-->
+<!--                                    </li>-->
+<!--                                    <li class="dropdown"><a href="#">Projects</a>-->
+<!--                                    	<ul>-->
+<!--                                            <li><a href="portfolio-default.html">Projects Standard</a></li>-->
+<!--                                            <li><a href="portfolio-fullwidth.html">Projects Fullwidth</a></li>-->
+<!--                                            <li><a href="portfolio-with-text.html">Projects With Text</a></li>-->
+<!--                                            <li><a href="portfolio-single-one.html">Projects Single 01</a></li>-->
+<!--                                            <li><a href="portfolio-single-two.html">Projects Single 02</a></li>-->
+<!--                                        </ul>-->
+<!--                                    </li>-->
+                                    <!--<li class="dropdown"><a href="#">Blog</a>
+                                    	<ul>
+                                            <li><a href="blog.html">Blog Standard</a></li>
+                                            <li><a href="blog-large-image.html">Blog Large Image</a></li>
+                                            <li><a href="blog-single.html">Blog Single</a></li>
+                                        </ul>
+                                    </li>-->
+
+
+
+<!--                                    <li class="dropdown"><a href="#">Pages</a>-->
+<!--                                    	<ul>-->
+<!--                                            <li><a href="about-us.html">About Us</a></li>-->
+<!--                                            <li><a href="our-team.html">Our Team</a></li>-->
+<!--                                            <li><a href="team-single.html">Team Single</a></li>-->
+<!--                                            <li><a href="pricing.html">Pricing Table</a></li>-->
+<!--                                            <li><a href="faqs.html">FAQ's</a></li>-->
+<!--                                        </ul>-->
+<!--                                    </li>-->
+<!--                                    -->
+
+
+
+                                 </ul>
+                            </div>
+                        </nav><!-- Main Menu End-->
+
+                    </div><!--Nav Outer End-->
+
+                    <!-- Hidden Nav Toggler -->
+                    <div class="nav-toggler">
+                    <button class="hidden-bar-opener"><span class="icon fa fa-bars"></span></button>
+                    </div><!-- / Hidden Nav Toggler -->
+
+
+                    <!--Search Btn-->
+                    {% if request.session.logname %}
+                    {% if request.session.logrole == '2' %}
+                    <a href="/shopping-cart" class="cart-btn-outer"><div class="icon"><span class="flaticon-shopping-cart">&nbsp; &nbsp;&nbsp; &nbsp;</span></div></a>
+                    <div class="header-search-icon search-box-btn"><span class="flaticon-search"></span></div>
+                </div>
+                <a href="/showorders" class="cart-btn-outer"><div class="icon"> <span class="flaticon-shopping-bag"></span></div></a>
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
+
+    </header>
+    <!--End Main Header -->
+    <!-- Hidden Navigation Bar -->
+    <section class="hidden-bar right-align">
+
+        <div class="hidden-bar-closer">
+            <button class="btn"><i class="fa fa-close"></i></button>
+        </div>
+
+        <!-- Hidden Bar Wrapper -->
+        <div class="hidden-bar-wrapper">
+
+            <!-- .logo -->
+            <div class="logo text-center">
+                <a href="index"><img src="static/images/logo-2.png" alt=""></a>
+            </div><!-- /.logo -->
+
+            <!-- .Side-menu -->
+            <div class="side-menu">
+            <!-- .navigation -->
+                <ul class="navigation">
+                    <li class="current"><a href="/index">Home</a></li>
+                                    <li><a href="/services">Category</a></li>
+                                    <li><a href="/shop">All Products</a></li>
+                                    {% if request.session.logname %}
+                                    {% if request.session.logrole == '3' %}
+                                    <li class="dropdown"><a href="#">Pages</a>
+                                    	<ul>
+                                            <li><a href="/addproduct">Add Product</a></li>
+                                            <li><a href="/manageproduct">Manage Product</a></li>
+                                            <li><a href="/manageorder">Manage Order</a></li>
+                                        </ul>
+                                    </li>
+
+                                    {% endif %}
+                                     <li><a href="contact">Contact</a></li>
+                                     <li><a href="/feedback">Feedback</a></li>
+                                     <li><a href="/complain">Complain</a></li>
+                                     <li><a href="/logout">Logout</a></li>
+                                    {% else %}
+                                     <li><a href="/register">Register</a></li>
+                                    <li><a href="/login">Login </a></li>
+                                    {% endif %}
+                    <!--<li class="dropdown"><a href="#">About Us</a>
+                        <ul>
+                            <li><a href="about-us.html">About Us</a></li>
+                            <li><a href="our-team.html">Our Team</a></li>
+                            <li><a href="team-single.html">Team Single</a></li>
+                        </ul>
+                    </li>-->
+<!--                    <li class="dropdown"><a href="#">Services</a>-->
+<!--                        <ul class="submenu">-->
+<!--                            <li><a href="services.html">Our Services</a></li>-->
+<!--                            <li><a href="service-single.html">Services Single</a></li>-->
+<!--                        </ul>-->
+<!--                    </li>-->
+<!--                    <li class="dropdown"><a href="#">Projects</a>-->
+<!--                        <ul class="submenu">-->
+<!--                            <li><a href="portfolio-default.html">Projects Standard</a></li>-->
+<!--                            <li><a href="portfolio-fullwidth.html">Projects Fullwidth</a></li>-->
+<!--                            <li><a href="portfolio-with-text.html">Projects With Text</a></li>-->
+<!--                            <li><a href="portfolio-single-one.html">Projects Single 01</a></li>-->
+<!--                            <li><a href="portfolio-single-two.html">Projects Single 02</a></li>-->
+<!--                        </ul>-->
+<!--                    </li>-->
+                    <!--<li class="dropdown"><a href="#">Blog</a>
+                        <ul class="submenu">
+                            <li><a href="blog.html">Blog Standard</a></li>
+                            <li><a href="blog-large-image.html">Blog large Image</a></li>
+                            <li><a href="blog-single.html">Blog Single</a></li>
+                        </ul>
+                    </li>-->
+
+<!--                    <li class="dropdown"><a href="#">Shop</a>-->
+<!--                        <ul class="submenu">-->
+<!--                            <li><a href="shop">Shop Products</a></li>-->
+<!--&lt;!&ndash;                            <li><a href="shop-single.html">Shop Single</a></li>&ndash;&gt;-->
+<!--                            <li><a href="shopping-cart">Shopping Cart</a></li>-->
+<!--                            <li><a href="checkout">Checkout</a></li>-->
+<!--                            <li><a href="register">Register</a></li>-->
+<!--                            <li><a href="login">Login</a></li>-->
+<!--                        </ul>-->
+<!--                    </li>-->
+<!--                    -->
+<!--                    &lt;!&ndash;<li class="dropdown"><a href="#">Pages</a>-->
+<!--                        <ul class="submenu">-->
+<!--                            <li><a href="about-us.html">About Us</a></li>-->
+<!--                            <li><a href="our-team.html">Our Team</a></li>-->
+<!--                            <li><a href="team-single.html">Team Single</a></li>-->
+<!--                            <li><a href="pricing.html">Pricing Table</a></li>-->
+<!--                            <li><a href="faqs.html">FAQ's</a></li>-->
+<!--                        </ul>-->
+<!--                    </li>&ndash;&gt;-->
+<!--                    -->
+<!--                    <li><a href="contact">Contact</a></li>-->
+                </ul>
+            </div><!-- /.Side-menu -->
+
+            <div class="social-icons">
+
+            </div>
+                <ul>
+                        <li></li>
+                            {% if request.session.logname %}
+                        	<li><span class="fa fa-user"></span><a href="/profile"> Welcome , {{ request.session.logname }}</a></li>
+                            {% endif %}
+
+
+                </ul>
+        </div><!-- / Hidden Bar Wrapper -->
+    </section>
+    <!-- / Hidden Bar -->
+
+
+    <!--Page Title-->
+    <section class="page-title" style="background-image:url(/static/images/background/bg-page-title-1.jpg);">
+        <div class="auto-container">
+            <h1>Shop Products</h1>
+        </div>
+    </section>
+
+    <!--Page Info-->
+    <section class="page-info">
+        <div class="auto-container clearfix">
+            <div class="pull-left"><h2>Shop Products</h2></div>
+            <div class="pull-right">
+                <ul class="bread-crumb clearfix">
+                    <li><a href="/index">Home</a></li>
+                    <li><a href="/shop">Shop</a></li>
+                    <li>Shop Products</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!--Sidebar Page-->
+    <div class="sidebar-page-container">
+        <div class="auto-container">
+            <div class="row clearfix">
+
+                <!--Content Side-->
+                <div class="content-side col-lg-9 col-md-8 col-sm-12 col-xs-12">
+
+                    <!--Products Section-->
+                    <section class="products-section no-padd-top">
+
+<!--                        <div class="shop-upper-box">-->
+<!--                            <div class="clearfix">-->
+<!--                                <div class="pull-left items-label">Showing 1-9 of 40 items</div>-->
+<!--                                <div class="pull-right sort-by">-->
+<!--                                	<strong>Sort By:</strong>-->
+<!--                                    <select class="sort-select">-->
+<!--                                        <option>Price: Lowest First</option>-->
+<!--                                        <option>Price: Highest First</option>-->
+<!--                                        <option>Ascending</option>-->
+<!--                                        <option>Descending</option>-->
+<!--                                    </select>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+                        <div class="row">
+
+  {% for i in data %}
+                            <div class="default-shop-item col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                <!--inner-box-->
+
+                                <div class="inner-box">
+
+                                    <!--image-box-->
+                                    <figure class="image-box">
+<!--                                        <a href="shop-single.html"><img src="/static/images/resource/products/image-5.jpg" alt="" /></a>-->
+                                        <a href="/shop-single/{{i.id}}"><img src="/media/{{ i.ITEM_IMG}}" alt="" height="250px;" width="100px;" /></a>
+                                    </figure>
+
+                                    <!--lower-content-->
+                                    <div class="lower-content">
+<!--                                        <h3><a href="shop-single.html">{{ i.ITEM_NAME}}</a></h3>-->
+                                        <h3><a href="/shop-single/{{i.id}}">{{ i.ITEM_NAME}}</a></h3>
+                                            <div class="price"><a href="/shop-single/{{i.id}}">Rs.{{ i.ITEM_PRICE}}</a></div>
+<!--                                        <div class="rating">-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                        </div>-->
+
+<!--                                        <div class="price">$ 25.99 <span>$ 35.99</span></div>-->
+
+<!--                                        <div class="links-box">-->
+<!--                                            <a class="cart-btn" href="shopping-cart">Add to Cart</a>-->
+<!--&lt;!&ndash;                                            <a class="zoom-btn lightbox-image" href="images/resource/products/image-5.jpg" title="Image Caption Here"><span class="fa fa-search-plus" title="Quick View"></span></a>&ndash;&gt;-->
+<!--                                            <a class="zoom-btn lightbox-image" href="media/{{ i.ITEM_IMG}}" title="Image Caption Here"><span class="fa fa-search-plus" title="Quick View"></span></a>-->
+<!--                                            <a class="add-to-favorite" href="#" title="Add to Favourite"><span class="fa fa-heart"></span></a>-->
+<!--                                        </div>-->
+                                        <br>
+                                    </div>
+
+                                </div>
+
+                            </div>
+          {% endfor %}
+<!--                            <div class="default-shop-item col-lg-4 col-md-6 col-sm-6 col-xs-12">-->
+<!--                                &lt;!&ndash;inner-box&ndash;&gt;-->
+<!--                                <div class="inner-box">-->
+<!--                                    &lt;!&ndash;image-box&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <figure class="image-box">&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <a href="shop-single.html"><img src="/static/images/resource/products/image-6.jpg" alt="" /></a>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <div class="item-sale-tag new">New</div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </figure>&ndash;&gt;-->
+<!--                                    -->
+<!--                                    &lt;!&ndash;lower-content&ndash;&gt;-->
+<!--                                    <div class="lower-content">-->
+<!--                                        <h3><a href="shop-single.html">{{ i.ITEM_NAME}}</a></h3>-->
+<!--                                        -->
+<!--                                        <div class="rating">-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                        </div>-->
+<!--                                        -->
+<!--&lt;!&ndash;                                        <div class="price">$ 19.00 <span>$ 25.00</span></div>&ndash;&gt;-->
+<!--                                        <div class="price">{{ i.ITEM_PRICE}}</div>-->
+<!--                                        <div class="links-box">-->
+<!--                                            <a class="cart-btn" href="shopping-cart.html">Add to Cart</a>-->
+<!--&lt;!&ndash;                                            <a class="zoom-btn lightbox-image" href="images/resource/products/image-6.jpg" title="Image Caption Here"><span class="fa fa-search-plus" title="Quick View"></span></a>&ndash;&gt;-->
+<!--                                            <a class="zoom-btn lightbox-image" href="media/{{ i.ITEM_IMG}}" title="Image Caption Here"><span class="fa fa-search-plus" title="Quick View"></span></a>-->
+<!--                                            <a class="add-to-favorite" href="#" title="Add to Favourite"><span class="fa fa-heart"></span></a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    -->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            -->
+<!--                            <div class="default-shop-item col-lg-4 col-md-6 col-sm-6 col-xs-12">-->
+<!--                                &lt;!&ndash;inner-box&ndash;&gt;-->
+<!--                                <div class="inner-box">-->
+<!--                                    &lt;!&ndash;image-box&ndash;&gt;-->
+<!--                                    <figure class="image-box">-->
+<!--&lt;!&ndash;                                        <a href="shop-single.html"><img src="/static/images/resource/products/image-7.jpg" alt="" /></a>&ndash;&gt;-->
+<!--                                        <a href="shop-single.html"><img src="media/{{ i.ITEM_IMG}}" alt="" /></a>-->
+<!--                                    </figure>-->
+
+<!--                                    &lt;!&ndash;lower-content&ndash;&gt;-->
+<!--                                    <div class="lower-content">-->
+<!--                                        <h3><a href="shop-single.html">{{ i.ITEM_NAME}}</a></h3>-->
+<!--                                        -->
+<!--                                        <div class="rating">-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                        </div>-->
+<!--                                        -->
+<!--                                        <div class="price">{{ i.ITEM_PRICE}}</div>-->
+<!--                                        <div class="links-box">-->
+<!--                                            <a class="cart-btn" href="shopping-cart.html">Add to Cart</a>-->
+<!--&lt;!&ndash;                                            <a class="zoom-btn lightbox-image" href="images/resource/products/image-7.jpg" title="Image Caption Here"><span class="fa fa-search-plus" title="Quick View"></span></a>&ndash;&gt;-->
+<!--                                            <a class="zoom-btn lightbox-image" href="media/{{ i.ITEM_IMG}}" title="Image Caption Here"><span class="fa fa-search-plus" title="Quick View"></span></a>-->
+<!--                                            <a class="add-to-favorite" href="#" title="Add to Favourite"><span class="fa fa-heart"></span></a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    -->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            -->
+<!--                            <div class="default-shop-item col-lg-4 col-md-6 col-sm-6 col-xs-12">-->
+<!--                                &lt;!&ndash;inner-box&ndash;&gt;-->
+<!--                                <div class="inner-box">-->
+<!--                                    &lt;!&ndash;image-box&ndash;&gt;-->
+<!--                                    <figure class="image-box">-->
+<!--&lt;!&ndash;                                        <a href="shop-single.html"><img src="/static/images/resource/products/image-8.jpg" alt="" /></a>&ndash;&gt;-->
+<!--                                        <a href="shop-single.html"><img src="media/{{ i.ITEM_IMG}}" alt="" /></a>-->
+<!--                                    </figure>-->
+<!--                                    -->
+<!--                                    &lt;!&ndash;lower-content&ndash;&gt;-->
+<!--                                    <div class="lower-content">-->
+<!--                                        <h3><a href="shop-single.html">{{ i.ITEM_NAME}}</a></h3>-->
+<!--                                        -->
+<!--                                        <div class="rating">-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                        </div>-->
+<!--                                        -->
+<!--                                        <div class="price">{{ i.ITEM_PRICE}}</div>-->
+<!--                                        <div class="links-box">-->
+<!--                                            <a class="cart-btn" href="shopping-cart.html">Add to Cart</a>-->
+<!--&lt;!&ndash;                                            <a class="zoom-btn lightbox-image" href="images/resource/products/image-8.jpg" title="Image Caption Here"><span class="fa fa-search-plus" title="Quick View"></span></a>&ndash;&gt;-->
+<!--                                            <a class="zoom-btn lightbox-image" href="media/{{ i.ITEM_IMG}}" title="Image Caption Here"><span class="fa fa-search-plus" title="Quick View"></span></a>-->
+<!--                                            <a class="add-to-favorite" href="#" title="Add to Favourite"><span class="fa fa-heart"></span></a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    -->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            -->
+<!--                            <div class="default-shop-item out-of-stock col-lg-4 col-md-6 col-sm-4 col-xs-12">-->
+<!--                                &lt;!&ndash;inner-box&ndash;&gt;-->
+<!--                                <div class="inner-box">-->
+<!--                                    &lt;!&ndash;image-box&ndash;&gt;-->
+<!--                                    <figure class="image-box">-->
+<!--&lt;!&ndash;                                        <a href="shop-single.html"><img src="/static/images/resource/products/image-9.jpg" alt="" /></a>&ndash;&gt;-->
+<!--                                        <a href="shop-single.html"><img src="media/{{ i.ITEM_IMG}}" alt="" /></a>-->
+<!--                                    </figure>-->
+<!--                                    -->
+<!--                                    &lt;!&ndash;lower-content&ndash;&gt;-->
+<!--                                    <div class="lower-content">-->
+<!--                                        <h3><a href="shop-single.html">{{ i.ITEM_NAME}}</a></h3>-->
+<!--                                        -->
+<!--                                        <div class="rating">-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                        </div>-->
+<!--                                        -->
+<!--&lt;!&ndash;                                        <div class="price">$ 30.99 <span>$ 35.99</span></div>&ndash;&gt;-->
+<!--                                        <div class="price">{{ i.ITEM_PRICE}}</div>-->
+<!--                                        <div class="links-box">-->
+<!--                                            <a class="cart-btn" href="shopping-cart.html">Add to Cart</a>-->
+<!--&lt;!&ndash;                                            <a class="zoom-btn lightbox-image" href="images/resource/products/image-9.jpg" title="Image Caption Here"><span class="fa fa-search-plus" title="Quick View"></span></a>&ndash;&gt;-->
+<!--                                            <a class="zoom-btn lightbox-image" href="media/{{ i.ITEM_IMG}}" title="Image Caption Here"><span class="fa fa-search-plus" title="Quick View"></span></a>-->
+<!--                                            <a class="add-to-favorite" href="#" title="Add to Favourite"><span class="fa fa-heart"></span></a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    -->
+<!--                                    <div class="dead-overlay"><span class="text">Out Of Stock</span></div>-->
+<!--                                    -->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            -->
+<!--                            <div class="default-shop-item col-lg-4 col-md-6 col-sm-6 col-xs-12">-->
+<!--                                &lt;!&ndash;inner-box&ndash;&gt;-->
+<!--                                <div class="inner-box">-->
+<!--                                    &lt;!&ndash;image-box&ndash;&gt;-->
+<!--                                    <figure class="image-box">-->
+<!--&lt;!&ndash;                                        <a href="shop-single.html"><img src="/static/images/resource/products/image-10.jpg" alt="" /></a>&ndash;&gt;-->
+<!--                                        <a href="shop-single.html"><img src="media/{{ i.ITEM_IMG}}" alt="" /></a>-->
+<!--                                        <div class="item-sale-tag top">Top</div>-->
+<!--                                    </figure>-->
+<!--                                    -->
+<!--                                    &lt;!&ndash;lower-content&ndash;&gt;-->
+<!--                                    <div class="lower-content">-->
+<!--                                        <h3><a href="shop-single.html">{{ i.ITEM_NAME}}</a></h3>-->
+<!--                                        -->
+<!--                                        <div class="rating">-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star-half-empty"></span>-->
+<!--                                        </div>-->
+<!--                                        -->
+<!--&lt;!&ndash;                                        <div class="price">$ 19.99 <span>$ 25.99</span></div>&ndash;&gt;-->
+<!--                                        <div class="price">{{ i.ITEM_PRICE}}</div>-->
+<!--                                        <div class="links-box">-->
+<!--                                            <a class="cart-btn" href="shopping-cart.html">Add to Cart</a>-->
+<!--&lt;!&ndash;                                            <a class="zoom-btn lightbox-image" href="images/resource/products/image-10.jpg" title="Image Caption Here"><span class="fa fa-search-plus" title="Quick View"></span></a>&ndash;&gt;-->
+<!--                                            <a class="zoom-btn lightbox-image" href="media/{{ i.ITEM_IMG}}" title="Image Caption Here"><span class="fa fa-search-plus" title="Quick View"></span></a>-->
+<!--                                            <a class="add-to-favorite" href="#" title="Add to Favourite"><span class="fa fa-heart"></span></a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    -->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            -->
+<!--                            <div class="default-shop-item col-lg-4 col-md-6 col-sm-6 col-xs-12">-->
+<!--                                &lt;!&ndash;inner-box&ndash;&gt;-->
+<!--                                <div class="inner-box">-->
+<!--                                    &lt;!&ndash;image-box&ndash;&gt;-->
+<!--                                    <figure class="image-box">-->
+<!--&lt;!&ndash;                                        <a href="shop-single.html"><img src="/static/images/resource/products/image-11.jpg" alt="" /></a>&ndash;&gt;-->
+<!--                                        <a href="shop-single.html"><img src="media/{{ i.ITEM_IMG}}" alt="" /></a>-->
+<!--                                    </figure>-->
+<!--                                    -->
+<!--                                    &lt;!&ndash;lower-content&ndash;&gt;-->
+<!--                                    <div class="lower-content">-->
+<!--                                        <h3><a href="shop-single.html">{{ i.ITEM_NAME}}</a></h3>-->
+<!--                                        -->
+<!--                                        <div class="rating">-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star-half-empty"></span>-->
+<!--                                        </div>-->
+<!--                                        -->
+<!--&lt;!&ndash;                                         <div class="price">$ 30.99 <span>$ 35.99</span></div>&ndash;&gt;-->
+<!--                                         <div class="price">{{ i.ITEM_PRICE}}</span></div>-->
+<!--                                        <div class="links-box">-->
+<!--                                            <a class="cart-btn" href="shopping-cart.html">Add to Cart</a>-->
+<!--&lt;!&ndash;                                            <a class="zoom-btn lightbox-image" href="images/resource/products/image-11.jpg" title="Image Caption Here"><span class="fa fa-search-plus" title="Quick View"></span></a>&ndash;&gt;-->
+<!--                                            <a class="zoom-btn lightbox-image" href="media/{{ i.ITEM_IMG}}" title="Image Caption Here"><span class="fa fa-search-plus" title="Quick View"></span></a>-->
+<!--                                            <a class="add-to-favorite" href="#" title="Add to Favourite"><span class="fa fa-heart"></span></a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    -->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            -->
+<!--                            <div class="default-shop-item col-lg-4 col-md-6 col-sm-6 col-xs-12">-->
+<!--                                &lt;!&ndash;inner-box&ndash;&gt;-->
+<!--                                <div class="inner-box">-->
+<!--                                    &lt;!&ndash;image-box&ndash;&gt;-->
+<!--                                    <figure class="image-box">-->
+<!--&lt;!&ndash;                                        <a href="shop-single.html"><img src="/static/images/resource/products/image-12.jpg" alt="" /></a>&ndash;&gt;-->
+<!--                                        <a href="shop-single.html"><img src="media/{{ i.ITEM_IMG}}" alt="" /></a>-->
+<!--                                    </figure>-->
+<!--                                    -->
+<!--                                    &lt;!&ndash;lower-content&ndash;&gt;-->
+<!--                                    <div class="lower-content">-->
+<!--                                        <h3><a href="shop-single.html">{{ i.ITEM_NAME}}</a></h3>-->
+<!--                                        -->
+<!--                                        <div class="rating">-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                        </div>-->
+<!--                                        -->
+<!--&lt;!&ndash;                                        <div class="price">$ 44.99 </div>&ndash;&gt;-->
+<!--                                        <div class="price">{{ i.ITEM_PRICE}}</div>-->
+<!--                                        <div class="links-box">-->
+<!--                                            <a class="cart-btn" href="shopping-cart.html">Add to Cart</a>-->
+<!--&lt;!&ndash;                                            <a class="zoom-btn lightbox-image" href="images/resource/products/image-12.jpg" title="Image Caption Here"><span class="fa fa-search-plus" title="Quick View"></span></a>&ndash;&gt;-->
+<!--                                            <a class="zoom-btn lightbox-image" href="media/{{ i.ITEM_IMG}}" title="Image Caption Here"><span class="fa fa-search-plus" title="Quick View"></span></a>-->
+<!--                                            <a class="add-to-favorite" href="#" title="Add to Favourite"><span class="fa fa-heart"></span></a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    -->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            -->
+<!--                            <div class="default-shop-item col-lg-4 col-md-6 col-sm-6 col-xs-12">-->
+<!--                                &lt;!&ndash;inner-box&ndash;&gt;-->
+<!--                                <div class="inner-box">-->
+<!--                                    &lt;!&ndash;image-box&ndash;&gt;-->
+<!--                                    <figure class="image-box">-->
+<!--&lt;!&ndash;                                        <a href="shop-single.html"><img src="/static/images/resource/products/image-13.jpg" alt="" /></a>&ndash;&gt;-->
+<!--                                        <a href="shop-single.html"><img src="media/{{ i.ITEM_IMG}}" alt="" /></a>-->
+<!--                                    </figure>-->
+<!--                                    -->
+<!--                                    &lt;!&ndash;lower-content&ndash;&gt;-->
+<!--                                    <div class="lower-content">-->
+<!--                                        <h3><a href="shop-single.html">{{ i.ITEM_NAME}}</a></h3>-->
+<!--                                        -->
+<!--                                        <div class="rating">-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                            <span class="fa fa-star"></span>-->
+<!--                                        </div>-->
+<!--                                        -->
+<!--&lt;!&ndash;                                        <div class="price">$ 19.99 <span>$ 25.99</span></div>&ndash;&gt;-->
+<!--                                        <div class="price">{{i.ITEM_PRICE}}</div>-->
+<!--                                        <div class="links-box">-->
+<!--                                            <a class="cart-btn" href="shopping-cart.html">Add to Cart</a>-->
+<!--&lt;!&ndash;                                            <a class="zoom-btn lightbox-image" href="images/resource/products/image-13.jpg" title="Image Caption Here"><span class="fa fa-search-plus" title="Quick View"></span></a>&ndash;&gt;-->
+<!--                                            <a class="zoom-btn lightbox-image" href="media/{{ i.ITEM_IMG}}" title="Image Caption Here"><span class="fa fa-search-plus" title="Quick View"></span></a>-->
+<!--                                            <a class="add-to-favorite" href="#" title="Add to Favourite"><span class="fa fa-heart"></span></a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    -->
+<!--                                </div>-->
+<!--                            </div>-->
+
+                        </div>
+
+                        <hr class="no-margin">
+
+                        <!-- Styled Pagination -->
+<!--                        <div class="styled-pagination padd-top-30 text-left">-->
+<!--                            <ul>-->
+<!--                                <li><a class="prev" href="#"><span class="fa fa-angle-left"></span></a></li>-->
+<!--                                <li><a href="#" class="active">1</a></li>-->
+<!--                                <li><a href="#">2</a></li>-->
+<!--                                <li><a href="#">3</a></li>-->
+<!--                                <li><a class="next" href="#"><span class="fa fa-angle-right"></span></a></li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+
+                    </section>
+
+                </div><!--End Content Side-->
+
+                <!--Sidebar-->
+                <div class="sidebar-side col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <aside class="sidebar">
+
+                        <!-- Search Form -->
+<!--                        <div class="widget search-box sidebar-widget">-->
+<!--                            -->
+<!--                            <form method="post" action="#">-->
+<!--                                <div class="form-group">-->
+<!--                                    <input type="search" name="search-field" value="" placeholder="Enter Keyword">-->
+<!--                                    <button type="submit"><span class="icon fa fa-search"></span></button>-->
+<!--                                </div>-->
+<!--                            </form>-->
+<!--                            -->
+<!--                        </div>-->
+
+                        <!-- Popular Categories -->
+                        <div class="widget popular-categories sidebar-widget">
+                            <div class="sidebar-title"><h3>Product Categories</h3></div>
+
+                            <ul class="list-three">
+                                {% for i in catdata %}
+                                <li><a href="/productfilter/{{ i.id }}">{{ i.CAT_NAME }}</a></li>
+                                {% endfor %}
+
+                            </ul>
+
+                        </div>
+
+                        <!-- Price Filter -->
+<!--                        <div class="widget rangeslider-widget sidebar-widget">-->
+<!--                            <div class="sidebar-title"><h3>Filter By Price</h3></div>-->
+<!--                                -->
+<!--                            <div class="range-slider-price" id="range-slider-price"></div>-->
+<!--                            -->
+<!--                            <br>-->
+<!--                            <div class="form-group">-->
+<!--                                <input type="text" class="val-box" id="min-value-rangeslider">-->
+<!--                                <input type="text" class="val-box" id="max-value-rangeslider">-->
+<!--                                <button type="button">Filter ($)</button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        -->
+<!--                        &lt;!&ndash; Best Sellers &ndash;&gt;-->
+<!--                        <div class="widget best-sellers sidebar-widget">-->
+<!--                        	<div class="sidebar-title"><h3>Latest Products</h3></div>-->
+<!--                            -->
+<!--                            <div class="item">-->
+<!--                                <div class="post-thumb"><a href="#"><img src="/static/images/resource/products/thumb-1.jpg" alt=""></a></div>-->
+<!--                                <h4><a href="#">Fabric Sofa Set</a></h4>-->
+<!--                                <div class="rating"><span class="fa fa-star"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span></div>-->
+<!--                                <div class="item-price">$ 19.99 <span class="strike-through">$ 25.99</span></div>-->
+<!--                            </div>-->
+<!--                            -->
+<!--                            <div class="item">-->
+<!--                                <div class="post-thumb"><a href="#"><img src="/static/images/resource/products/thumb-2.jpg" alt=""></a></div>-->
+<!--                                <h4><a href="#">Greeney Study Chair</a></h4>-->
+<!--                                <div class="rating"><span class="fa fa-star"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span> <span class="fa fa-star-half-empty"></span></div>-->
+<!--                                <div class="item-price">$ 19.99 <span class="strike-through">$ 25.99</span></div>-->
+<!--                            </div>-->
+<!--                            -->
+<!--                            <div class="item">-->
+<!--                                <div class="post-thumb"><a href="#"><img src="/static/images/resource/products/thumb-1.jpg" alt=""></a></div>-->
+<!--                                <h4><a href="#">Flower Planter Table</a></h4>-->
+<!--                                <div class="rating"><span class="fa fa-star"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span> <span class="fa fa-star-o"></span></div>-->
+<!--                                <div class="item-price">$ 30.99 <span class="strike-through">$ 35.99</span></div>-->
+<!--                            </div>-->
+<!--                            -->
+<!--                        </div>-->
+<!--                        -->
+<!--                        &lt;!&ndash; Popular Tags &ndash;&gt;-->
+<!--                        <div class="widget sidebar-widget popular-tags">-->
+<!--                            <div class="sidebar-title"><h3>Products Tags</h3></div>-->
+<!--                            -->
+<!--                            <a href="#">Furniture</a>-->
+<!--                            <a href="#">Wood</a>-->
+<!--                            <a href="#">Lighting</a>-->
+<!--                            <a href="#">Artificial Grass</a>-->
+<!--                            <a href="#">Painting</a>-->
+<!--                            <a href="#">Curtains</a>-->
+<!--                            <a href="#">Tile &amp; Marble</a>-->
+<!--                            -->
+<!--                        </div>-->
+<!--                        -->
+                    </aside>
+                </div><!--End Sidebar-->
+
+            </div>
+        </div>
+    </div>
+
+
+
+     <!--Main Footer-->
+<footer class="main-footer" style="background-image:url(/static/images/background/footer-bg.jpg);">
+    <div class="auto-container">
+        <!--Widgets Section-->
+        <div class="widgets-section">
+            <div class="row clearfix">
+                <!--Footer Column - About Us-->
+                <div class="footer-column col-md-4 col-sm-4 col-xs-12">
+                    <div class="footer-widget about-widget">
+                        <div class="footer-logo"><figure><a href="index"><img src="/static/images/logo-4.png" alt=""></a></figure></div>
+                        <div class="widget-content">
+<!--                            <div class="text">Must explain too you all this mistaken idea off denouncing pleasure and well praising pain was born and I will gives you complete accounts systems must explain to idea of denouncing.</div>-->
+                            <div class="text">Home decor isn't about rejecting enjoyment and embracing discomfort. Our goal is to offer you helpful insights into the world of interior design. We provide a carefully chosen range of arts and decorations that prioritize both comfort and style. Allow us to assist you in transforming your living space into a personal sanctuary that enhances your daily life experiences.</div>
+                            <ul class="contact-info">
+                                <li><span class="icon fa fa-map-marker"></span>Ashram Road, 9, Vidya Vihar Colony Rd, opp. Fortune Landmark Hotel, Usmanpura, Ahmedabad, Gujarat 380013</li>
+                                <li><span class="icon fa fa-phone"></span>079 2755 6140</li>
+                                <li><span class="icon fa fa-envelope-o"></span>Decordelightsupport@gmail.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Footer Column - Popular Tags-->
+                <div class="footer-column col-md-4 col-sm-4 col-xs-12">
+                    <div class="footer-widget tags-widget">
+                        <h2>Popular Tags</h2>
+                        <div class="widget-content">
+                            <ul class="tags-list">
+                                {% for i in catdata %}
+                                    <li><a href="/productfilter/{{ i.id }}">{{ i.CAT_NAME }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                {% if request.session.logname %}
+                <!--Footer Column - Send Message Us-->
+                <div class="footer-column col-md-4 col-sm-4 col-xs-12">
+                    <div class="footer-widget tags-widget">
+                        <h2>Get in Touch</h2>
+                        <!--form-box-->
+                        <div class="form-box default-form">
+                            <div class="contact-form default-form">
+                                <form action="/insertcontactdata" method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="row clearfix">
+                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" name="subject" value="" placeholder="Subject *" required>
+                                        </div>
+                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" name="username" value="" placeholder="Your Name *" required>
+                                        </div>
+                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                            <input type="email" name="email" value="" placeholder="Your Mail *" required>
+                                        </div>
+                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" name="phone" value="" placeholder="Phone Number">
+                                        </div>
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                            <textarea name="message" placeholder="Message *"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                            <input type="submit" class="theme-btn btn-style-two" name="Submit" value="SEND US" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!--Footer Bottom-->
+    <div class="footer-bottom">
+        <div class="auto-container">
+            <div class="clearfix">
+                <div class="pull-right">
+                    <ul class="footer-nav">
+                        <li><a href=/index>Home</a></li>
+                        <li><a href="/services">Services</a></li>
+                        {% if request.session.logname %}
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/feedback">Feedback</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+</div>
+<!--End pagewrapper-->
+
+
+<!--Search Popup-->
+<div id="search-popup" class="search-popup">
+	<div class="close-search theme-btn"><span class="flaticon-unchecked"></span></div>
+	<div class="popup-inner">
+
+    	<div class="search-form">
+        	<form method="post" action="#">
+            	<div class="form-group">
+                	<fieldset>
+                        <input type="search" class="form-control" name="search-input" value="" placeholder="Search Here" required >
+                        <input type="submit" value="Search" class="theme-btn">
+                    </fieldset>
+                </div>
+            </form>
+
+           <br>
+            <h3>Recent Search Keywords</h3>
+            <ul class="recent-searches">
+                <li><a href="#">Wood Art</a></li>
+                <li><a href="#">Wall Art</a></li>
+                <li><a href="#">Resin Art</a></li>
+                <li><a href="#">Lighting</a></li>
+                <!--<li><a href="#">Logistics</a></li>
+                <li><a href="#">Freedom</a></li>-->
+            </ul>
+
+        </div>
+
+    </div>
+</div>
+
+<!--Scroll to top-->
+<div class="scroll-to-top scroll-to-target" data-target=".main-header"><span class="fa fa-long-arrow-up"></span></div>
+
+
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="/static/js/jquery.fancybox.pack.js"></script>
+<script src="/static/js/jquery.fancybox-media.js"></script>
+<script src="/static/js/nouislider.js"></script>
+<script src="/static/js/owl.js"></script>
+<script src="/static/js/wow.js"></script>
+<script src="/static/js/script.js"></script>
+</body>
+
+
+</html>

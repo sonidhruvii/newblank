@@ -1,30 +1,510 @@
-<button id="pay-btn">Pay Now</button>
+<!DOCTYPE html>
+<html>
 
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<script>
-document.getElementById("pay-btn").onclick = function () {
-    alert("Button Clicked!");  // Debugging step
 
-    var options = {
-        "key": "rzp_test_wE164z4U9KaL7S", // Replace with valid API key
-        "amount": 50000, // 500 INR in paise
-        "currency": "INR",
-        "name": "The Craft Spot",
-        "description": "Test Transaction",
-        "handler": function (response) {
-            alert("Payment Successful! ID: " + response.razorpay_payment_id);
-        },
-        "prefill": {
-            "name": "Dhruvi Soni",
-            "email": "test@example.com",
-            "contact": "9999999999"
-        },
-        "theme": {
-            "color": "#3399cc"
-        }
-    };
+<head>
+<meta charset="utf-8">
+<title>The Craft Spot| Checkout</title>
+<!-- Stylesheets -->
+<link href="/static/css/bootstrap.css" rel="stylesheet">
+<link href="/static/css/style.css" rel="stylesheet">
+<link href="/static/css/nouislider.css" rel="stylesheet">
+<link href="/static/css/nouislider.pips.css" rel="stylesheet">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<link href="/static/css/responsive.css" rel="stylesheet">
+<!--[if lt IE 9]><script src="/static/https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="/static/js/respond.js"></script><![endif]-->
 
-    var rzp1 = new Razorpay(options);
-    rzp1.open();
-};
-</script>
+</head>
+
+<body>
+
+<div class="page-wrapper">
+ 	
+    <!-- Preloader -->
+    <div class="preloader"></div>
+ 	
+    <header class="main-header">
+    	<!-- Header Top -->
+    	<div class="header-top">
+        	<div class="auto-container">
+            	<div class="row clearfix">
+                    
+                    <!--Top Left-->
+                    
+                    
+                    <!--Top Right-->
+                    <div class="top-right pull-right">
+                        
+
+                    	<!--social-icon-->
+                        <div class="social-icon">
+                        	<a href="#"><span class="fa fa-facebook"></span></a>
+                            <a href="#"><span class="fa fa-twitter"></span></a>
+                            
+                        </div>
+                        
+                    	<ul>
+                            {% if request.session.logname %}
+                            <li><span class="fa fa-envelope-o"></span>Welcome , {{ request.session.logname }}</li>
+                            {% endif %}
+                        	
+                        </ul>
+                        
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div><!-- Header Top End -->
+        
+        
+        <!-- Main Box -->
+    	<div class="main-box">
+        	<div class="auto-container">
+            	<div class="outer-container clearfix">
+                    <!--Logo Box-->
+                    <div class="logo-box">
+                        <div class="logo"><a href="index-2.html"><img src="static/images/image.png" alt="" style="margin: 10px; width: 200px; height =200px;"></a></div>
+                    </div>
+                    
+                    <!--Nav Outer-->
+                    <div class="nav-outer clearfix">
+                        <!-- Main Menu -->
+                        <nav class="main-menu">
+                            <div class="navbar-header">
+                                <!-- Toggle Button -->    	
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            
+                            <div class="navbar-collapse collapse clearfix">
+                                <ul class="navigation clearfix">
+                                    <li class="current"><a href="index-2.html">Home</a></li>
+                                    <li class="dropdown"><a href="/about">About Us</a>
+                                    </li>
+                               
+                                    <li class="dropdown"><a href="/discover">Our Categories</a>
+                                    </li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                    {% if request.session.logname %}
+                                    
+                                    <li><a href="/logout/">Logout</a></li>
+                                {% else %}
+                                    <li><a href="/register">Register</a></li>
+                                    <li><a href="/login">Login</a></li>
+                                {% endif %}
+                                    
+                                    
+                                    
+                                 </ul>
+                            </div>
+                        </nav><!-- Main Menu End-->
+                        
+                    </div><!--Nav Outer End-->
+                    {% if request.session.logname %}
+                    <!-- Hidden Nav Toggler -->
+                    <div class="nav-toggler">
+                    <button class="hidden-bar-opener"><span class="icon fa fa-bars"></span></button>
+                    </div><!-- / Hidden Nav Toggler -->
+                    
+                    <!--Search Btn-->
+                    <a href="shopping-cart" class="cart-btn-outer"><div class="icon"><span class="flaticon-shopping-bag"></span><span class="count"></span></div></a>
+                    <div class="header-search-icon search-box-btn"><span class="flaticon-search"></span></div>
+                    {% endif %}
+            	</div>    
+            </div>
+        </div>
+    
+    </header>
+    <!--End Main Header -->
+    
+    
+    <!-- Hidden Navigation Bar -->
+    <section class="hidden-bar right-align">
+        
+        <div class="hidden-bar-closer">
+            <button class="btn"><i class="fa fa-close"></i></button>
+        </div>
+        
+        <!-- Hidden Bar Wrapper -->
+        <div class="hidden-bar-wrapper">
+        
+            <!-- .logo -->
+            <div class="logo text-center">
+                <a href="index-2.html"><img src="static/images/logo-2.png" alt=""></a>			
+            </div><!-- /.logo -->
+            
+            <!-- .Side-menu -->
+            <div class="side-menu">
+            <!-- .navigation -->
+                <ul class="navigation">
+                    <li class="current"><a href="index-2.html">Home</a></li>
+                    <li class="dropdown"><a href="/about">About Us</a>
+                        
+                    </li>
+                    <li class="dropdown"><a href="/discover">Our Categories </a>
+                       
+                    </li>
+                    <li><a href="/contact">Contact</a></li>
+                    
+                    {% if request.session.logname %}
+                                    
+                                    <li><a href="/logout/">Logout</a></li>
+                                {% else %}
+                                    <li><a href="/register">Register</a></li>
+                                    <li><a href="/login">Login</a></li>
+                                {% endif %}
+                    
+                   
+                </ul>
+            </div><!-- /.Side-menu -->
+        
+            <div class="social-icons">
+                <ul>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    
+                </ul>
+            </div>
+        
+        </div><!-- / Hidden Bar Wrapper -->
+    </section>
+    <!--Page Title-->
+    <section class="page-title" style="background-image:url(/static/images/background/bg-page-title-1.jpg);">
+        <div class="auto-container">
+            <h1>Checkout</h1>
+        </div>
+    </section>
+    
+    <!--Page Info-->
+    <section class="page-info">
+        <div class="auto-container clearfix">
+            <div class="pull-left"><h2>Checkout</h2></div>
+            <div class="pull-right">
+                <ul class="bread-crumb clearfix">
+                    <li><a href="/index">Home</a></li>
+                    <li><a href="/shop">Shop</a></li>
+                    <li>Checkout</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!--Checkoout Section-->
+    <section class="checkout-section cart-section">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <!-- Form Column -->
+                <div class="col-md-6 col-sm-12 col-xs-12 column form-column">
+                    {% if messages %}
+                        {% for i in messages %}
+                            <script>alert("{{ i }}");</script>
+                        {% endfor %}
+                    {% endif %}
+    
+                    <div class="sec-title medium"><h2>Shipping Address</h2></div>
+                    <div class="styled-form billing-info-form">
+                        <form method="post" action="/order-success" id="checkout-form">
+                            {% csrf_token %}
+                            <div class="row clearfix">
+                                <input type="hidden" name="user_id" value="{{ request.session.logid }}">
+                                
+                                <input type="hidden" name="user_id" value="{{ request.user.id }}">
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <div class="field-label">Your Name*</div>
+                                    <input type="text" id="uname" name="uname" value="" required>
+                                    <input type="hidden" name="total" id="order-total" value="{{ total }}">
+                                </div>
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <div class="field-label">Your Contact Number*</div>
+                                    <input type="text" name="contact" id="contact" required pattern="\d{10}" maxlength="10" minlength="10" aria-label="Your Contact Number">
+                                </div>
+                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                    <div class="field-label">Your Address*</div>
+                                    <textarea id="address" name="address" required></textarea>
+                                </div>
+                            </div>
+    
+                            <div class="row clearfix">
+                                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 column default-column">
+                                    <div class="payment-options">
+                                        <div class="option-block">
+                                            <div class="radio-block">
+                                                <div class="field-label">Choose Your Payment Method</div>
+                                                <input type="radio" name="payment-group" id="radio-cod" value="cod" checked>
+                                                <label for="radio-cod" class="radio-label">Cash on Delivery (COD)</label>
+                                            </div>
+                                        </div>
+                                        <div class="option-block">
+                                            <div class="radio-block">
+                                                <input type="radio" name="payment-group" id="radio-paynow" value="paynow">
+                                                <label for="radio-paynow" class="radio-label">Pay Online</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="padd-top-40 text-right">
+                                <button type="submit" id="place-order-btn" class="theme-btn btn-style-two">Place Order</button>
+                            </div>
+                        </form>
+    
+                        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+                        <script>
+                            document.getElementById("place-order-btn").addEventListener("click", function (event) {
+                                event.preventDefault(); // Prevent form from submitting immediately
+                                console.log("Place Order button clicked!");
+                        
+                                var name = document.getElementById("uname").value.trim();
+                                var contact = document.getElementById("contact").value.trim();
+                                var address = document.getElementById("address").value.trim();
+                                var totalAmount = document.getElementById("order-total").value.trim();
+                                var paymentMethod = document.querySelector('input[name="payment-group"]:checked').value;
+                        
+                                // Validation check
+                                if (name === "" || contact === "" || address === "") {
+                                    alert("Please fill in all required fields before proceeding.");
+                                    return;
+                                }
+                        
+                                if (paymentMethod === "cod") {
+                                    console.log("COD selected. Redirecting...");
+                                    document.getElementById("checkout-form").submit();
+                                    return; // Stop further execution
+                                } 
+                        
+                                if (paymentMethod === "paynow") {
+                                    console.log("Online payment selected. Redirecting to Razorpay...");
+                        
+                                    // Ensure totalAmount is a valid number before conversion
+                                    var totalAmountInPaise = parseInt(totalAmount);
+                                    if (isNaN(totalAmountInPaise) || totalAmountInPaise <= 0) {
+                                        alert("Invalid order amount. Please refresh and try again.");
+                                        return;
+                                    }
+                                    totalAmountInPaise *= 100; // Convert to paise
+                        
+                                    var options = {
+                                        "key": "rzp_test_wE164z4U9KaL7S",  // Replace with your Razorpay API key
+                                        "amount": totalAmountInPaise,
+                                        "currency": "INR",
+                                        "name": "The Craft Spot",
+                                        "description": "Purchase from The Craft Spot",
+                                        "handler": function (response) {
+                                            alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
+                        
+                                            // Get CSRF token
+                                            var csrfToken = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
+                        
+                                            // Append payment ID to form data
+                                            var formData = new FormData(document.getElementById("checkout-form"));
+                                            formData.append("payment_id", response.razorpay_payment_id);
+                        
+                                            // Send data to backend
+                                            fetch("/order-success", {
+                                                method: "POST",
+                                                body: formData,
+                                                headers: {
+                                                    "X-CSRFToken": csrfToken
+                                                }
+                                            })
+                                            .then(response => response.json())
+                                            .then(data => {
+                                                if (data.success) {
+                                                    // Redirect to order success page after saving the order
+                                                    window.location.href = "/order-success?payment_id=" + response.razorpay_payment_id;
+                                                } else {
+                                                    alert("Failed to save order: " + data.error);
+                                                }
+                                            })
+                                            .catch(error => {
+                                                console.error("Error:", error);
+                                                alert("Something went wrong!");
+                                            });
+                                        },
+                                        "prefill": {
+                                            "name": name,
+                                            "contact": contact
+                                        },
+                                        "theme": {
+                                            "color": "#3399cc"
+                                        }
+                                    };
+                        
+                                    // Open Razorpay payment modal
+                                    var rzp1 = new Razorpay(options);
+                                    rzp1.open();
+                                }
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+                
+        </div>
+   </section>
+      
+    
+    
+     <!--Main Footer-->
+    <!--Main Footer-->
+<!--Main Footer-->
+<footer class="main-footer" style="background-image:url(/static/images/background/footer-bg.jpg);">
+    <div class="auto-container">
+        <!--Widgets Section-->
+        <div class="widgets-section">
+            <div class="row clearfix">
+                <!--Footer Column - About Us-->
+                <div class="footer-column col-md-4 col-sm-4 col-xs-12">
+                    <div class="footer-widget about-widget">
+                        <div class="footer-logo"><figure><a href="index"><img src="/static/images/logo-4.png" alt=""></a></figure></div>
+                        <div class="widget-content">
+<!--                            <div class="text">Must explain too you all this mistaken idea off denouncing pleasure and well praising pain was born and I will gives you complete accounts systems must explain to idea of denouncing.</div>-->
+                            <div class="text">Home decor isn't about rejecting enjoyment and embracing discomfort. Our goal is to offer you helpful insights into the world of interior design. We provide a carefully chosen range of arts and decorations that prioritize both comfort and style. Allow us to assist you in transforming your living space into a personal sanctuary that enhances your daily life experiences.</div>
+                            <ul class="contact-info">
+                                <li><span class="icon fa fa-map-marker"></span>Ashram Road, 9, Vidya Vihar Colony Rd, opp. Fortune Landmark Hotel, Usmanpura, Ahmedabad, Gujarat 380013</li>
+                                <li><span class="icon fa fa-phone"></span>079 2755 6140</li>
+                                <li><span class="icon fa fa-envelope-o"></span>Decordelightsupport@gmail.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Footer Column - Popular Tags-->
+                <div class="footer-column col-md-4 col-sm-4 col-xs-12">
+                    <div class="footer-widget tags-widget">
+                        <h2>Popular Tags</h2>
+                        <div class="widget-content">
+                            <ul class="tags-list">
+                                {% for i in catdata %}
+                                    <li><a href="/productfilter/{{ i.id }}">{{ i.CAT_NAME }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Footer Column - Send Message Us-->
+                <div class="footer-column col-md-4 col-sm-4 col-xs-12">
+                    <div class="footer-widget tags-widget">
+                        <h2>Get in Touch </h2>
+                        <!--form-box-->
+                        <div class="form-box default-form">
+                            <div class="contact-form default-form">
+                                <form action="/insertcontactdata" method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="row clearfix">
+                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" name="subject" value="" placeholder="Subject *" required>
+                                        </div>
+                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" name="username" value="" placeholder="Your Name *" required>
+                                        </div>
+                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                            <input type="email" name="email" value="" placeholder="Your Mail *" required>
+                                        </div>
+                                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" name="phone" value="" placeholder="Phone Number">
+                                        </div>
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                            <textarea name="message" placeholder="Message *"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                            <input type="submit" class="theme-btn btn-style-two" name="Submit" value="SEND US" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--Footer Bottom-->
+    <div class="footer-bottom">
+        <div class="auto-container">
+            <div class="clearfix">
+                <div class="pull-right">
+                    <ul class="footer-nav">
+                        <li><a href=/index>Home</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/feedback">Feedback</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+</div>
+<!--End pagewrapper-->
+
+
+<!--Search Popup-->
+<div id="search-popup" class="search-popup">
+	<div class="close-search theme-btn"><span class="flaticon-unchecked"></span></div>
+	<div class="popup-inner">
+    
+    	<div class="search-form">
+        	<form method="post" action="#">
+            	<div class="form-group">
+                	<fieldset>
+                        <input type="search" class="form-control" name="search-input" value="" placeholder="Search Here" required >
+                        <input type="submit" value="Search" class="theme-btn">
+                    </fieldset>
+                </div>
+            </form>
+            
+            <br>
+            <h3>Recent Search Keywords</h3>
+            <ul class="recent-searches">
+                <li><a href="#">Wood Art</a></li>
+                <li><a href="#">Wall Art</a></li>
+                <li><a href="#">Resin Art</a></li>
+                <li><a href="#">Lighting</a></li>
+                <!--<li><a href="#">Logistics</a></li>
+                <li><a href="#">Freedom</a></li>-->
+            </ul>
+        
+        </div>
+        
+    </div>
+</div>
+
+<!--Scroll to top-->
+<div class="scroll-to-top scroll-to-target" data-target=".main-header"><span class="fa fa-long-arrow-up"></span></div>
+
+
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="/static/js/jquery.fancybox.pack.js"></script>
+<script src="/static/js/jquery.fancybox-media.js"></script>
+<script src="/static/js/nouislider.js"></script>
+<script src="/static/js/jquery.bootstrap-touchspin.js"></script>
+<script src="/static/js/owl.js"></script>
+<script src="/static/js/wow.js"></script>
+<script src="/static/js/script.js"></script>
+</body>
+
+
+</html>
